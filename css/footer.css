@@ -9,16 +9,61 @@
 	/* color: #f0f; */
 }
 
-/* this is effectively the footer */
-.footer__panel {
-	/* padding: 2rem; */
+.footer__upper-panel {
+	min-height: var(--footer-upper-height);
+	padding-top: calc(var(--footer-upper-height) / 3);
+	/* padding-inline: 6rem; */
+	border: 1px solid aqua;
+	display: flex;
+}
+
+.footer__social-links {
+	display: flex;
+	gap: 0.5rem;
+	/* social links are img inside links which affects the default alignment (they align start not center) */
+	align-items: center;
+	margin-left: 4rem;
+	border: 1px solid orange;
+}
+
+.footer__company-logos {
+	margin-left: auto;
+	margin-right: 6rem;
+	display: flex;
+	gap: 2rem;
+	/* logos are imgs so they align center by default */
+	/* align-items: start; */
+	border: 1px solid orangered;
+}
+
+.calderdyeing-logo {
+	padding-top: 1.7rem;
+}
+
+.footer__lower-panel {
 	/* try setting a min-height for the footer so we can make 
-		the last section plus the footer plus the header equal 100vh 
-		--footer-height is set in global.css */
+	the last section plus the footer plus the header equal 100vh 
+	--footer-height is set in global.css */
 
 	min-height: var(--footer-height);
 
-	/* NB layout styles are beign handled by bootstrap!!!! */
+	background-color: hsl(var(--navy));
+	/* border: 1px solid yellow; */
+
+	color: hsl(var(--white));
+
+	display: flex;
+	align-items: center;
+	padding-inline: 2rem;
+}
+
+.footer__links {
+	margin-left: auto;
+	margin-right: 2.5rem;
+}
+
+.footer__designedby {
+	margin-right: 2.5rem;
 }
 
 .panel--logo {

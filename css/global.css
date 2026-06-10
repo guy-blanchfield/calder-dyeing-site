@@ -99,6 +99,9 @@ html {
 
 	/* value for the footer height (more or less arbitrary but needed so we can calculate last section height) */
 	--footer-height: 4rem;
+
+	/* and for the footer__upper-panel just in case */
+	--footer-upper-height: 12rem;
 }
 
 /* so the anchor link take into account the height of the sticky / fixed header */

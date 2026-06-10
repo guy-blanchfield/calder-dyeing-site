@@ -1,0 +1,113 @@
+/* styles for the footer */
+
+.footer {
+	/* border: 1px solid magenta; */
+}
+
+.footer__logo {
+	color: var(--accent);
+	/* color: #f0f; */
+}
+
+/* this is effectively the footer */
+.footer__panel {
+	/* padding: 2rem; */
+	/* try setting a min-height for the footer so we can make 
+		the last section plus the footer plus the header equal 100vh 
+		--footer-height is set in global.css */
+
+	min-height: var(--footer-height);
+
+	/* NB layout styles are beign handled by bootstrap!!!! */
+}
+
+.panel--logo {
+	display: flex;
+	justify-content: flex-end; /* flex-end as fallback */
+	justify-content: end;
+	background-color: hsl(var(--white));
+	/* border: solid 1px hotpink; */
+
+	/* try losing the logo completely */
+	/* yeah, looks good */
+	/* put the logo in a component just in case we need it and delete it */
+}
+
+/* hide logo panel on mobile */
+/* match the bootstrap breakpoints */
+/* https://getbootstrap.com/docs/5.0/layout/breakpoints/#max-width */
+@media (max-width: 575.98px) {
+	.panel--logo {
+		display: none;
+	}
+}
+
+/* panel--text is a modifier for footer__panel */
+/* bg colour is on here because originally there was another modifier --logo
+	that had a different bg colour */
+.panel--text {
+	background-color: var(--text);
+	color: hsl(var(--white));
+	/* border: solid 1px yellow; */
+}
+
+.footer__link,
+.footer__dayeightagency-link {
+	color: hsl(var(--white));
+	text-decoration: none;
+	/* position relative for the ::after positioning */
+	position: relative;
+}
+
+/* bit of space for the privacy contact links */
+/* they're a bit tight around the pipe fnarr fnarr */
+.footer__link {
+	margin-inline: 0.2rem;
+}
+
+.footer__dayeightagency-link {
+	font-weight: bold;
+}
+
+.footer__link:hover,
+.footer__dayeightagency-link:hover {
+	color: hsl(var(--white));
+}
+
+.footer__link::after,
+.footer__dayeightagency-link::after {
+	content: "";
+	position: absolute;
+	/* background-color: var(--muted); */
+	height: 1px;
+	width: 100%;
+	border-radius: 2px;
+	bottom: -0.3rem;
+	left: 0;
+
+	transform: scaleX(0);
+	transition: transform 200ms ease-in-out;
+}
+
+.footer__link:hover::after,
+.footer__dayeightagency-link:hover::after,
+.footer__link:focus-visible::after,
+.footer__dayeightagency-link:focus-visible::after {
+	transform: scaleX(1);
+}
+
+/* doing the background-color in separate ruleset in case we want different color underline for different links */
+.footer__link::after,
+.footer__dayeightagency-link::after {
+	background-color: var(--muted);
+}
+
+.footer__link:focus-visible,
+.footer__dayeightagency-link:focus-visible {
+	outline: none;
+	background-color: hsl(var(--white) / 0.25);
+}
+
+.footer__link::after {
+	/* background-color: hsl(var(--white)); */
+}

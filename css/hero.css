@@ -1,0 +1,11 @@
+/* styles for the hero section */
+
+.hero {
+	background-color: hsl(var(--navy));
+}
+
+.hero h1 {
+	color: hsl(var(--white));
+	font-size: 2rem;
+	text-transform: lowercase;
+}

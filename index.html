@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+		<meta
+			content="Calder Dyeing is a specialist yarn dye house with strong technical expertise and a practical hands-on ethos, based in the heart of West Yorkshire's historic textile industry."
+			name="description"
+		/>
+		<meta content="width=device-width,initial-scale=1" name="viewport" />
+		<link
+			href="/fonts/librebaskerville-regular-webfont.woff2"
+			rel="preload"
+			type="font/woff2"
+			as="font"
+			crossorigin=""
+		/>
+		<link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+		<title>Calder Dyeing : Home</title>
+
+		<!-- styles -->
+		<link href="/css/reset.css" rel="stylesheet" />
+		<link href="/css/global.css" rel="stylesheet" />
+		<link href="/css/header.css" rel="stylesheet" />
+		<link href="/css/hero.css" rel="stylesheet" />
+		<link href="/css/main.css" rel="stylesheet" />
+		<link href="/css/footer.css" rel="stylesheet" />
+
+		<script src="/js/navbar-toggler.js" defer></script>
+	</head>
+
+	<!-- body -->
+	<body>
+		<!-- header -->
+		<header class="header">
+			<div class="visually-hidden" id="skip"><a class="" href="#main-content">Skip to Main Content</a></div>
+			<nav class="navbar" id="navbar">
+				<!-- extra div container here so we can position the logo and toggler more easily -->
+				<div class="navbar__logo-and-toggler-container">
+					<a class="navbar__logo" href="/">
+						<img src="/svg/calder-dyeing-logo-stack.svg" alt="Calder Dyeing Ltd Logo" width="130" height="58" />
+						<span class="visually-hidden">Calder Textiles Home Page</span>
+					</a>
+					<button
+						aria-controls="navmenu"
+						aria-expanded="false"
+						aria-label="Toggle Mobile Navigation Menu"
+						class="navbar__toggler"
+						data-bs-target="#navmenu"
+						data-bs-toggle="collapse"
+						type="button"
+					>
+						<svg
+							aria-hidden="true"
+							astro-icon="ic:baseline-menu"
+							class="navbar__toggler-icon navbar__toggler-icon--menu"
+							viewBox="0 0 24 24"
+						>
+							<path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="currentColor"></path>
+						</svg>
+						<svg aria-hidden="true" class="navbar__toggler-icon navbar__toggler-icon--close" viewBox="0 0 24 24">
+							<path
+								d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+								fill="currentColor"
+							></path>
+						</svg>
+						<span class="visually-hidden">Menu</span>
+					</button>
+				</div>
+
+				<div class="navmenu" aria-hidden="false" id="navmenu">
+					<ul class="navmenu__menu">
+						<li class="nav-item" id="nav-item__aboutus">
+							<a class="nav-link" href="/#aboutus" id="nav-link__aboutus" aria-current="false">About Us</a>
+						</li>
+						<li class="nav-item" id="nav-item__products">
+							<a class="nav-link" href="/products" id="nav-link__products">Products</a>
+						</li>
+						<li class="nav-item" id="nav-item__development">
+							<a class="nav-link" href="/development" id="nav-link__development">Development</a>
+						</li>
+						<li class="nav-item" id="nav-item__sustainability">
+							<a class="nav-link" href="/sustainability" id="nav-link__sustainability">Sustainability</a>
+						</li>
+						<li class="nav-item" id="nav-item__contact">
+							<a class="nav-link" href="/contact" id="nav-link__contact">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<!-- end header -->
+
+		<!-- hero -->
+
+		<!-- temporary hero for now -->
+		<section class="hero">
+			<h1>The Art of Dyeing</h1>
+		</section>
+
+		<!-- main -->
+		<main id="main-content">
+			<p>This is the main stuff</p>
+		</main>
+		<!-- end main -->
+
+		<!-- footer -->
+		<footer class="footer" id="footer">
+			<div class="footer__upper-panel">
+				<div class="social-links">
+					<div class="instagram-link"></div>
+					<div class="linkedin-link"></div>
+				</div>
+
+				<div class="company-logos">
+					<div class="calderdyeing-logo"></div>
+					<div class="caldertextiles-logo"></div>
+				</div>
+			</div>
+			<div class="footer__lower-panel panel--text">
+				<div class="">
+					<div class="footer_company-number"><small>UK Registered Company No. 1803068</small></div>
+					<div class="footer__links">
+						<a class="footer__link" href="/privacy">Privacy</a> |
+						<a class="footer__link" href="/contact">Contact</a>
+					</div>
+					<div class="footer__designedby">
+						Site designed by
+						<a class="footer__dayeightagency-link" href="https://www.dayeightagency.co.uk">Day Eight</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- end footer -->
+	</body>
+	<!-- end body -->
+</html>

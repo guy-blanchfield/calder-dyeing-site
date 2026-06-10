@@ -1,0 +1,537 @@
+/* header stuff */
+
+.header {
+	/* the height: 0 setting here stops the shaking text in firefox as the menu is expanding */
+	/* it standardises the behaviour of the expanding menu */
+	/* i.e. it always expands over the the rest of the content, never pushes it down */
+	/* how does it work? I dunno, but it does! */
+
+	/* think it's because the changing size of the sticky element (because of the expanding menu inside it) */
+	/* causes it to sometimes behave as position sticky and sometimes as position relative */
+
+	/* maybe a fixed height might work the same */
+	/* problem with this is all the content after the header starts at the top of the page */
+	/* which defeats the point of doing it sticky, might as well do it fixed! */
+
+	/* maybe use the formula from the hero height calculation? */
+	/* yeah that works, but fiddly */
+	/* can we set this as a constant somewhere? yep */
+
+	/* height: 0; */
+
+	/* height: calc(var(--navbar-brand-logo-height) + (var(--navbar-vertical-padding)*2) + 0.5rem); */
+	/* --header-height-calc is defined in global.css */
+
+	/* what can be done to stop the shift when clicking about us? */
+	/* it's caused by bs sticky-top */
+	/* tried taking off the bs class sticky-top, and setting it here using -1px */
+	/* worse */
+	/* it's only happening firefox, so probably for now */
+	/* until we get a better idea */
+
+	/* if we're now using flex, then we might want to rethink the header-height calc */
+	/* (we probably won't need the --navbar-vertical-padding now) */
+	/* (header-height-calc is set in global.css) */
+
+	height: var(--header-height-calc);
+	overflow: visible;
+	/* border: 1px solid fuchsia; */
+	background-color: hsl(var(--white));
+	border: 1px solid red;
+
+	/* header needs to be sticky */
+	position: sticky;
+	top: 0px;
+
+	/* display: flex;
+	flex-direction: column;
+	justify-content: center; */
+}
+
+/* try the header as flex for desktop so we can vertically center the logo and nav */
+
+/* just do this with a media query for desktop for now */
+/* we can try to apply it to mobile later, but it'll need a bit of a rethink */
+/* bc the expanding menu can't be vertically centered, it has to expand downwards! */
+@media (min-width: 992px) {
+	.header {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		/* now we need flex-basis: 100% in .navbar */
+	}
+}
+
+/* navbar stuff */
+
+.navbar {
+	/* min-height is no good, the flex centering causes things to shift when the nav expands / collapses */
+	/* try setting vars for the logo height and the nav bar vertical padding */
+	/* and use these to calculate the hero height */
+
+	/* the variables should probably be declared in global.css */
+	/* padding-top: var(--navbar-vertical-padding); */
+	/* see if we can do without the bottom padding */
+	/* yeah checked plenty, seems ok */
+	/* padding-bottom: var(--navbar-vertical-padding); */
+
+	/* NB!! currently the mobile nav can't use flex and vertical centering, as we're doing for desktop */
+	/* because the expanding menu then expands up and down from the center, rather than dropping down */
+	/* fixing this will need a rethink */
+
+	/* min-height: var(--navbar-height); */
+	/* bg colour needs to be here as well as the header */
+	/* because of the expanding navmenu */
+	background-color: hsl(var(--white));
+	border: 1px solid yellowgreen;
+	/* height: var(--header-height-calc); */
+	/* display: flex; */
+	/* flex-direction: column; */
+}
+
+@media (min-width: 992px) {
+	.navbar {
+		display: flex;
+		/* flex-direction: row; */
+		flex-basis: 100%;
+
+		/* clear the padding */
+		padding: 0;
+		/* align-items: center; */
+		/* justify-content: center; */
+		/* border: 1px solid greenyellow; */
+	}
+}
+
+/* navbar-brand stuff from bootstrap */
+/* renamed to navbar__logo so I know what's my stuff and what's bootstrap hangover */
+/* just replace all the variables with 0 for now */
+
+/*  
+.navbar__logo {
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-right: 0;
+	font-size: 1rem;
+	color: #f00;
+	border: 1px solid magenta;
+	text-decoration: none;
+	white-space: nowrap;
+}
+.navbar__logo:hover,
+.navbar__logo:focus {
+	color: #0f0;
+}
+
+*/
+
+/* logo and toggler stuff */
+
+.navbar__logo-and-toggler-container {
+	display: flex;
+	justify-content: space-between;
+	/* border: 1px solid darkorange; */
+	/* background-color: papayawhip; */
+	/* force the height to be the same as the header so we can align the items center */
+	/* bit of a hack but it more or less works - height might need adjusting a bit */
+	/* got some bottom padding or something in chrome - investigate! think it's the navmenu */
+	height: var(--header-height-calc);
+	align-items: center;
+}
+
+.navbar__logo {
+	/* padding-inline-start: 1rem; */
+	padding-inline: 1rem;
+	/* img:-moz-loading { */
+	/* visibility: hidden; */
+	/* transition: transform 0.2s ease-in-out; */
+	border: 1px solid plum;
+}
+
+/* more padding for lg and higher */
+/* navmenu goes to hamburger <992 */
+@media (min-width: 992px) {
+	.navbar__logo {
+		padding-inline-start: 2rem;
+	}
+}
+
+.navbar__logo:focus-visible {
+	/* outline: 1px dotted hsl(var(--white)); */
+	outline: 1px solid hsl(var(--white) / 0.5);
+}
+
+.navbar__logo:is(:hover, :focus-visible) {
+	/* can't set colour here, set it below in the -svg class */
+	/* color: hsl(var(--offwhite)); */
+
+	/* animation: logo-pop 0.4s ease-in-out; */
+	/* transform: scale(1.05); */
+	/* background-color: hsl(var(--white) / 0.2); */
+}
+
+.navbar__logo:is(:hover, :focus-visible) .navbar__logo-svg {
+	/* color: hsl(var(--offwhite)); */
+	/* color: hsl(var(--navy)); */
+}
+
+.navbar__logo-svg {
+	color: hsl(var(--white));
+}
+
+/* .navbar__logo-svg:is(:hover, :focus-visible) {
+    color: hsl(var(--offwhite));
+} */
+
+.navbar__logo-img {
+	/* not sure what this was doing, this should be covered by the bs reset */
+	/* max-width: 100%; */
+}
+
+/* to fix the weird flash of alt text in firefox */
+/* see: https://stackoverflow.com/questions/68166235/firefox-alt-text-appears-while-loading-image */
+/* this might not be necessary when the logo is SVG - keep an eye on it */
+.navbar__logo-img:-moz-loading {
+	visibility: hidden;
+}
+
+/* get rid of the border and background on the toggle button */
+.navbar__toggler {
+	aspect-ratio: 1 / 1;
+	border: none;
+	border-radius: 0;
+	/* bit of margin-end here to make the horizontal space more like the vertical space */
+	margin-inline-end: 0.3rem;
+
+	/* color: var(--accent); */
+	/* background-color: var(--muted); */
+	background-color: transparent;
+	/* border: 1px solid rebeccapurple; */
+}
+
+/* to make the focus outline thinner */
+.navbar__toggler:focus {
+	box-shadow: none;
+}
+
+.navbar__toggler:focus-visible {
+	color: var(--accent);
+	/* background-color: var(--muted); */
+	background-color: hsl(var(--white) / 0.5);
+}
+
+.navbar__toggler-icon {
+	/* NB fill instead of color for SVG */
+	fill: hsl(var(--accent) / 0.5);
+	width: 2rem;
+	height: 2rem;
+	/* think display: none should be ok here accessibility wise */
+	display: none;
+}
+
+/* use .navbar__toggler's aria-expanded attr to show / hide the appropriate icon */
+
+.navbar__toggler[aria-expanded="false"] .navbar__toggler-icon--menu {
+	display: block;
+	/* fill: firebrick; */
+}
+
+.navbar__toggler[aria-expanded="true"] .navbar__toggler-icon--close {
+	display: block;
+	/* fill: hotpink; */
+}
+
+@media (min-width: 992px) {
+	/* don't need the toggler for desktop*/
+	.navbar__toggler {
+		display: none;
+	}
+}
+
+/* navmenu stuff */
+
+/* kp's grid-template-rows height transition trick for the mobile menu open/close transition */
+/* https://www.youtube.com/watch?v=B_n4YONte5A */
+
+.navmenu {
+	/* border: 1px solid plum; */
+	/* transition duration var */
+	--transitionDuration: 400ms;
+
+	display: grid;
+	grid-template-rows: 1fr;
+
+	/* it's these overflow hiddens that are breaking the fancy underline hover */
+	/* here and .navmenu > ul */
+	/* so there's now a media query below for .navmenu and .navmenu ul */
+	overflow: hidden;
+
+	transition: grid-template-rows var(--transitionDuration) ease-in-out;
+
+	/* overrule bootstrap's vertical align (align-items: center) */
+	/* put it back for lg with media query below */
+	/* align-items: start; */
+
+	border: 1px solid cyan;
+}
+
+.navmenu:not(.show) {
+	/* this display rule to overrule bootstrap's display: none */
+	/* was display: block, now using display: grid */
+	/* we're going to use aria-hidden instead */
+	display: grid;
+	grid-template-rows: 0fr;
+}
+
+.navmenu__menu {
+	display: flex;
+	flex-direction: column;
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
+}
+.navmenu__menu .nav-link.active,
+.navmenu__menu .nav-link.show {
+	color: #00f;
+}
+
+@media (min-width: 992px) {
+	.navmenu__menu {
+		flex-direction: row;
+		padding-right: 1rem;
+	}
+}
+
+/* 
+.navmenu__menu .dropdown-menu {
+	position: static;
+}
+*/
+
+.navmenu__menu {
+	/* needs margin-top: 0 to overrule the 0.5rem from bootstrap */
+	margin: 0;
+
+	/* min-height or overflow: hidden, doesn't seem to matter which */
+	/* min-height: 0; */
+
+	/* this will be reset fro desktop, see below */
+	overflow: hidden;
+
+	/* @oxuhs-gy4xm says: */
+	/* Make sure to add "grid-row: 1 / span 2;" on the child element. */
+	/* Otherwise the child will animate at a different speed than the parent. */
+	/* see web/learn/the-simple-trick... for explanation */
+
+	/* it also ensures chrome will behave like firefox, (firefox will keep the parent and child at same speed) */
+	grid-row: 1 / span 2;
+}
+
+@media (min-width: 992px) {
+	.navmenu {
+		/* these were the only rule originally, presumably everything else was bootstrap */
+		/* vertical alignment */
+		align-items: center;
+		/* reset overflow for desktop menu, so the hover underline is visible */
+		overflow: initial;
+
+		/* my new rules (09-06-26) */
+
+		/* border: 1px solid fuchsia; */
+		/* horizontal alignment */
+		margin-left: auto;
+		margin-right: 2rem;
+	}
+
+	.navmenu__menu {
+		/* border: 1px solid aqua; */
+	}
+
+	.navmenu__menu {
+		/* also reset overflow for the ul in desktop, so the hover underline is visible */
+		overflow: initial;
+	}
+
+	.nav-item {
+		/* border: 1px solid blue; */
+	}
+}
+
+.navbar .nav-link {
+	color: hsl(var(--navy));
+	text-decoration: none;
+}
+
+.navbar .nav-link:is(:hover, :focus-visible) {
+	/* .navbar .nav-link:hover, .navbar .nav-link:focus-visible { */
+	/* this definitely works */
+	color: hsl(var(--accent));
+	/* color: fuchsia; */
+}
+
+.navbar .nav-link:focus-visible {
+	outline: none;
+	/* do we need mobile specific focus styles? yes, probably, 
+		but we also need to make the nav-toggle thing work with tabbing / focus */
+	background-color: hsl(var(--accent2) / 0.1);
+	/* get rid of the box-shadow otherwise there's still the default ugly blue outline on focus */
+	box-shadow: none;
+}
+
+.navbar .nav-link[aria-current="page"] {
+	color: var(--muted);
+}
+
+/* the separators in the navmenu list */
+/* use adjacent sibling selector (+) so that only the ::befores that immediately follow a nav-item get the separator */
+/* i.e. not the first item in the list */
+/* could use not first-child, but this seems a bit more elegant */
+
+/* only need this at lg and above */
+/* 992px see: https://getbootstrap.com/docs/5.3/layout/breakpoints/ */
+
+@media (min-width: 992px) {
+	.navbar .nav-item + .nav-item::before {
+		content: "|";
+		font-size: 0.7rem;
+		font-weight: bold;
+		padding: 0rem 0.5rem;
+		color: hsl(var(--navy) / 75%);
+		/* color: fuchsia; */
+		/* position relative so we can nudge it up a bit - it sits on the baseline otherwise */
+		/* position: relative; */
+		/* top: -0.1rem; */
+	}
+
+	#navmenu {
+		/* min-height: 100%; */
+		/* overflow: visible; */
+	}
+
+	.navbar-nav {
+		/* min-height: 100%; */
+		/* border: 1px solid aqua; */
+		/* overflow: visible; */
+	}
+
+	.nav-item {
+		/* border: 1px solid fuchsia; */
+		/* position: relative; */
+		/* background-color: aquamarine; */
+		/* min-height: 2rem; */
+
+		display: flex;
+		align-items: center;
+
+		/* border: 1px solid lawngreen; */
+	}
+
+	/* try forcing the nav-link to display: inline */
+	.nav-link {
+		/* display: inline; */
+		/* also set colour while we're at it */
+		/* color: hsl(var(--offwhite)); */
+		/* temporary colors */
+		/* color: grey; */
+		/* text-decoration: none; */
+
+		/* navlink position relative so the ::after can be positioned absolute */
+		position: relative;
+
+		/* reset the bs link padding, doesn't make much difference if any, but easier to work with */
+		/* padding: 0; */
+
+		/* padding needs to be on nav-link NOT nav-item because the separators are inside nav-item */
+		/* use a var for this padding because it affects the width of the fancy hover underline */
+		/* set the var value in global.css just for consistency */
+		padding-inline: var(--nav-link-padding-inline);
+		/* border: 1px solid red; */
+	}
+
+	.nav-link::after {
+		content: "";
+		position: absolute;
+		/* display: inline-block; */
+		background-color: var(--muted);
+		height: 1px;
+		width: calc(100% - calc(var(--nav-link-padding-inline) * 2));
+		/* width: 100%; */
+		border-radius: 2px;
+		/* bottom: 0px; */
+		bottom: -0.3rem;
+		left: var(--nav-link-padding-inline);
+		/* left: 0; */
+		/* var(--bs-navbar-nav-link-padding-x) is 0.5rem */
+
+		transform: scaleX(0);
+		transition: transform 200ms ease-in-out;
+	}
+
+	/* different color hover effect for the nav menu item of the current page */
+	.nav-link:is([aria-current="page"])::after {
+		background-color: hsl(var(--darkgrey) / 0.5);
+	}
+
+	.nav-link:is(:hover, :focus-visible) {
+		/* we only want the background-color hover/focus on mobile,
+			it gets set in the outside this media query (see above) */
+		background: none;
+	}
+
+	/* we want the hover effect to apply to any navlink except the current page */
+	.nav-link:hover:not([aria-current="page"])::after {
+		transform: scaleX(1);
+	}
+
+	/* we want the focus-visible effect to apply to all nav-links, otherwise users who tab won't know what has focus */
+	.nav-link:focus-visible::after {
+		transform: scaleX(1);
+	}
+}
+
+/* can't find an appropriate class with which to select the mobile nav */
+/* a combination of .show and .collpasing seems a bit hacky */
+
+/* yeah we should be able to do it with an adjacent sibling (.navbar__toggler [aria-expanded="true"]) */
+/* nah that's tidier but still doesn't work bc the aria-expanded remains true unless the button gets toggled */
+/* i.e. just resizing the window won't do it */
+
+/* gonna have to settle for a media query */
+/* we're using one for the desktop menu styling anyway! */
+
+@media (max-width: 991px) {
+	/* custom (non-bootstrap) styles for mobile navbar and menu */
+
+	.navbar {
+		/* padding-top: var(--navbar-vertical-padding); */
+		/* padding-bottom: 0; */
+	}
+
+	.navmenu__menu {
+	}
+
+	.nav-item {
+	}
+
+	.nav-link {
+		/* font-size: 1.2rem; */
+
+		/* make the links display block */
+		display: block;
+		padding-block: 1rem;
+
+		/* this'll need adjusting when the proper logo goes in */
+		padding-left: 1rem;
+		border-bottom: 1px solid hsl(var(--duckeggblue) / 0.3);
+	}
+
+	/* so the last item in the mobile nav gets closer to the bottom and has no border */
+	.nav-item:last-child .nav-link {
+		/* the <nav> has 0.5rem padding bottom so subtract 0.5rem from the bottom padding
+			 of this last item (is set to 1rem above) so it appears the same height as the other 
+			 nav items (in mobile) */
+		/* maybe give it a little more room, try an extra 0.1rem - yeah that feels better */
+		padding-bottom: 0.6rem;
+		border: none;
+	}
+}

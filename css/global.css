@@ -1,0 +1,336 @@
+/* test autoprefixer */
+/* from: https://stackoverflow.com/questions/75035565/postcss-autoprefixer-setup-in-an-astro-project */
+/* text-size-adjust: 100%; in src/styles/global.css to cause a -webkit-text-size-adjust: 100%; */
+html {
+	text-size-adjust: 100%;
+}
+
+/* ---------------- @fontface stuff ------------------- */
+
+/* this is the true baskerville */
+/* not currently being used */
+
+/* @font-face {
+	font-family: "Baskerville Normal";
+	src: local("Baskerville"), url("/fonts/baskerville-normal.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+} */
+
+@font-face {
+	font-family: "Libre Baskerville";
+	src:
+		url("/fonts/librebaskerville-regular-webfont.woff2") format("woff2"),
+		url("/fonts/librebaskerville-regular-webfont.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+	/* font-display: swap; */
+	/* trying font-display block to stop chrome doing the slow network intervention font-swap */
+	/* see: https://stackoverflow.com/questions/40143098/why-does-this-slow-network-detected-log-appear-in-chrome */
+	/* nah - block just makes it disappear intead of swapping to times */
+	/* try optional - nope this swaps it for times and never unswaps! */
+
+	/* It seems that this font flashing issue is due to chrome detecting a slow network */
+	/* i.e. when throttling with devtools */
+	/* and so hopefully it won't occur out in the wild */
+	/* also, it only occurs when google map api is present */
+
+	/* maybe font-display: block might be the lesser of two evils */
+
+	font-display: swap;
+}
+
+/* :root for global custom properties (variables) */
+
+:root {
+	--duckeggblue: 198 14% 53%;
+	/* --lightbluegrey-rgb: 127, 141, 150; */
+	/* duckegggrey from from duckeggblue */
+	--duckegggrey: 198 9% 53%;
+
+	--darkteal: 196 14% 42%;
+
+	/* original navy from calder textiles */
+	/* --navy: 220 24% 22%; */
+	--navy: 224 16% 24%;
+	--darknavy: 216 21% 14%;
+	--darkernavy: 216 8% 20%;
+
+	--white: 0 0% 100%;
+	/* offwhite from the duckeggblue */
+	--offwhite: 198 9% 83%;
+
+	--lightgrey: 0 0% 91%;
+	--darkgrey: 0 0% 64%;
+	--darkergrey: 0 0% 37%;
+
+	--text: hsl(var(--darkernavy));
+	--muted: hsl(var(--darkgrey));
+	--accent: hsl(var(--navy));
+	--accent-2: hsl(var(--duckeggblue));
+
+	--pageContentBgColour-1: hsl(var(--duckeggblue));
+	--pageContentBgColour-2: hsl(var(--darkteal));
+	--pageContentBgColour-3: hsl(var(--darknavy));
+	--pageContentBgColour-4: hsl(var(--lightgrey));
+	--pageContentBgColour-white: hsl(var(--white));
+
+	/* -------------- sizes --------------- */
+
+	/* set a height for the navbar and we can use the same value to calculate hero height and main top margin or padding */
+	/* --navbar-height: 5.5rem; */
+
+	/* navbar height is no good because the vertical centering cause things to shift when navbar expands / collapses */
+	/* try setting a height for the logo and some vertical padding values */
+
+	/* then we should be able to use these values to calc the hero height */
+
+	/* this is the same as Header.astro > logoSize.height */
+	--navbar-logo-height: 51px;
+
+	--navbar-vertical-padding: 1rem;
+
+	/* for the horizontal spacing of the nav-links in desktop mode */
+	--nav-link-padding-inline: 0.7rem;
+
+	/* try putting the calculation for the header height / hero height here as a global var */
+	--header-height-calc: calc(var(--navbar-logo-height) + (var(--navbar-vertical-padding) * 2) + 0.5rem);
+
+	/* value for the footer height (more or less arbitrary but needed so we can calculate last section height) */
+	--footer-height: 4rem;
+}
+
+/* so the anchor link take into account the height of the sticky / fixed header */
+/* take a bit off it (0.5rem) - err on the side of too little padding */
+/* better than a bit of the head image showing through under the header */
+/* NB should be on html not body */
+html {
+	/* thought scroll-padding was causing the slight vertical shift in the navbar when */
+	/* linking from the menu to #content (about us) */
+	/* but's actually the sticky header and it's only in firefox, so leave it for now */
+
+	scroll-padding-top: calc(var(--header-height-calc) - 0.5rem);
+}
+
+/* to make sure the page takes up full height, in the event of there not being */
+/* enough content to fill the height */
+
+body {
+	/* the min-height flex thing tp get the content to stretch to fill the page */
+	/* is now in Layout.astro style section bc it needs to be applied to the content-wrapper div*/
+	/* min-height: 100vh; */
+
+	/* display: flex; */
+	/* flex-direction: column; */
+
+	/* this is what's making the text shake slightly on reload! */
+	/* think we can ignore this - it's only on dev, not build */
+	/* font-family: "tex_gyre_heros", Arial, Helvetica, sans-serif; */
+	/* see if we can use a modern font stack for this... tex gyre is around 100k with the bold and italic etc */
+	/* yeah, think it looks slightly better as well, if anything */
+	/* remember the @font-face rules and preload for tex gyre heros */
+	/* also, see dev tools > computed > rendered fonts to see what the browser's using */
+	/* font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial, sans-serif; */
+
+	/* there's a problem here - google maps downloads roboto and then roboto gets used for body */
+	/* which presumably causes a shift from arial when roboto downloads..? */
+	/* there's also the gdpr issue! */
+	/* solutions: 1. self host roboto and load it as default */
+	/* 2.  */
+	font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial, sans-serif;
+}
+
+/* If browser supports font-size-adjust, use this */
+/* https://www.smashingmagazine.com/2016/08/ways-to-reduce-content-shifting-on-page-load/ */
+/* nope */
+/* @supports (font-size-adjust: none) { */
+/* body { */
+/* font-size-adjust: 5; */
+/* } */
+/* } */
+
+img {
+	/* don't seem to make any difference re setting width and height in img tags, but keep these rules anyway */
+	max-width: 100%;
+	height: auto;
+}
+
+/* main fills all the space between header & footer */
+main {
+	/* background-color: fuchsia; */
+	flex: 1;
+	/* shorthand for: flex-grow: 1, flex-shrink 0, flex-basis 0 */
+	/* default values are: 0 1 auto */
+
+	/* NB body flex-direction is column so these all relate to the vertical */
+
+	/* make main display: flex so that the sections can stretch to fit if necessary */
+	/* e.g. if there's only one section it can stretch to fill all of main */
+	/* (main strecthes to fit the available space between header and footer) */
+	display: flex;
+	flex-direction: column;
+}
+
+header {
+	/* leave any height settings on header until the hero is in, no telling what it might do */
+	/* min-height: 6rem;  */
+}
+
+footer {
+	/* min-height: 50px;  */
+}
+
+/* ------------ end min-height stuff ------------ */
+
+/* hide visually but show to assistive technologies */
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+/* utility class to hide stuff */
+/* using this on the body to hide everything until scripts are loaded */
+.hidden {
+	visibility: hidden;
+}
+
+/* currently only using this to obfuscate email address */
+.display-none {
+	display: none;
+}
+
+/* let's have a utility class for the serif font */
+/* otherwise we have to update every heading class */
+/* everytime we decide to change the font */
+.serif {
+	/* font-family: 'Baskerville Normal', 'Martel', 'Georgia', serif; */
+	/* font-family: 'Baskerville Normal', serif; */
+	font-family: "Libre Baskerville", serif;
+	font-weight: normal;
+}
+
+/* tailwind calls its nowrap utility whitespace-nowrap */
+.nowrap {
+	white-space: nowrap;
+}
+
+/* content-wrapper stuff */
+/* this is just so we can easily hide all content initially until page has loaded */
+/* don't think we're using it for any layout rules */
+
+/* .content-wrapper {
+	visibility: hidden;
+} */
+
+.content-wrapper {
+	/* set visibility to visible once this css has loaded */
+	/* !important here is necessary */
+	visibility: visible !important;
+
+	/* replaces stuff on body to get the content to stretch to fill the window */
+
+	/* vh fallback for browsers that don't support svh */
+	min-height: 100vh;
+	min-height: 100svh;
+
+	display: flex;
+	flex-direction: column;
+}
+
+@media (max-width: 768px) {
+	.body-aboutus {
+		background: none;
+	}
+}
+
+/* script will add this class if url has a hash in it on loading */
+/* so it doesn't smooth scroll on linking to a new page with a hash */
+/* but still smooth scrolls for within page anchor links */
+/* it gets added to html tag, that's where bootstrap is setting scroll-behaviour: smooth */
+
+/* NB this didn't work :( */
+/* about us page content fade up was still stuttery on linking to #aboutus from another page */
+.scroll-auto {
+	scroll-behavior: auto;
+}
+
+/* this lead para class is applied to slot material in individual pages */
+/* scoping means we can't put it in PageContentSection */
+/* so it'll have to go here, at least until we find a better way */
+.page-content__lead-para {
+	font-weight: bold;
+	/* added at client's request to increase legibility */
+	/* "It makes the text look a little fuzzy (not sharp)" */
+	font-size: 1.1rem;
+	/* now it needs a bit more bottom-margin */
+	margin-bottom: 1.1rem;
+}
+
+/* tried these section height rules in a media query
+but the section height thing applies to at least on section on the average mobile
+(usually the content in a section makes that section way higher than 100vh minus the header on mobile) */
+
+/* this is for the wrapper div around each section to give the section a min-height */
+/* that is the viewport height minus the header height with a little bit of wriggle room */
+.sectionFixedHeight {
+	/* fiddle to get round using possibly unsupported units in a calc */
+	/* it's equivalent to 100vh - var(--header-height-calc)) */
+
+	/* first set height with both units (best supported one first) */
+	min-height: 100vh;
+	min-height: 100svh;
+
+	/* negative margin of the amount we want to subtract */
+	/* take off a bit extra to cover the bit of wriggle room we added on the scroll-padding-top */
+	/* the wriggle room in the scroll padding is 0.5rem */
+	margin-top: calc((var(--header-height-calc) - 0.5rem) * -1);
+
+	/* padding of the amount we want to subtract */
+	/* and take off a bit extra to cover the bit of wriggle room we added on the scroll-padding-top */
+	/* this means that the content starts slightly higher than it should */
+	/* but better to start too high than too low otherwise a gap shows */
+	padding-top: calc((var(--header-height-calc) - 0.5rem));
+
+	/* tried the var fallback thing (instead of the -ve margin fiddle), 
+	/* not gonna work because the fallback is for an invalid var */
+	/* i.e a reference to a variable that has not yet been set or declared, NOT one that contains an invalid unit */
+
+	/* needs both display: flex AND flex: 1 */
+	/* display: flex so that the section inside it can flex grow */
+	/* and flex 1 so that the wrapper itself can flex grow */
+	/* if it needs to fill main, where main fills all the space between header & footer */
+	/* tbh, this might be redundant here because the wrapped section will fill the window anyway */
+	/* if it's got this sectionFixedHeight class on it */
+	display: flex;
+	flex: 1;
+}
+
+.lastSection {
+	/* for the last section on a page - full height minus the height of the header AND the footer */
+
+	/* first set height with both units (best supported one first) */
+	min-height: 100vh;
+	min-height: 100svh;
+
+	/* negative margin of the amount we want to subtract */
+	/* take off a bit extra to cover the bit of wriggle room we added on the scroll-padding-top */
+	/* the wriggle room in the scroll padding is 0.5rem */
+	margin-top: calc(calc(var(--header-height-calc) + var(--footer-height)) * -1);
+
+	/* padding of the amount we want to subtract */
+	/* and take off a bit extra to cover the bit of wriggle room we added on the scroll-padding-top */
+	/* this means that the content starts slightly higher than it should */
+	/* but better to start too high than too low otherwise a gap shows */
+	padding-top: calc(var(--header-height-calc) + var(--footer-height));
+
+	/* needs both display: flex AND flex: 1 */
+	display: flex;
+	flex: 1;
+}

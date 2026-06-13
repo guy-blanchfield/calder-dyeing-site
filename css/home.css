@@ -1,0 +1,192 @@
+/* styles specific to the homepage */
+
+/* homepage buttons */
+
+.homepage-buttons {
+	display: flex;
+	gap: 4rem;
+	justify-content: center;
+	padding: 4rem;
+	border: 1px solid blueviolet;
+}
+
+.homepage-button {
+	min-width: 10rem;
+	min-height: 12.5rem;
+
+	padding: 0.7rem;
+
+	background-color: hsl(var(--white));
+	box-shadow: 10px 10px 25px 5px #d0d3d5;
+	/* should probably put the shadow on an empty div positioned uner the button */
+	/* so it doesn't move when the button scales */
+}
+
+.homepage-button:is(:hover, :focus-visible) {
+	/* scale: 1.1; */
+}
+/* 
+:is(:hover, :focus-visible) */
+
+.homepage-button span {
+	display: block;
+	padding-inline-start: 0.2rem;
+	padding-block-start: 0.7rem;
+	color: var(--text);
+	font-size: 0.9rem;
+}
+
+.homepage-button div {
+	display: flex;
+	align-items: end;
+	padding-inline-start: 0.7rem;
+	padding-block-end: 0.7rem;
+	aspect-ratio: 1 / 1;
+}
+
+/* yellow blue green pink */
+.homepage-button--aboutus div {
+	background-color: hsl(var(--yellow));
+}
+
+.homepage-button--services div {
+	background-color: hsl(var(--blue));
+}
+
+.homepage-button--contact div {
+	background-color: hsl(var(--pink));
+}
+
+.homepage-button--responsibilities div {
+	background-color: hsl(var(--green));
+}
+
+/* about us section on the homepage */
+/* this layout is unique to the homepage */
+
+.aboutus {
+	display: flex;
+}
+
+.aboutus-image {
+	/* background image goes here */
+	flex-basis: 50%;
+
+	background-image: image-set(url(/img/yarn-dyeing-image-crop.webp) 1x);
+	background-repeat: no-repeat;
+	background-size: cover;
+	/* background-position: top 0% left 0%; */
+	border: 1px solid goldenrod;
+}
+
+.aboutus-text {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	gap: 4rem;
+
+	flex-basis: 50%;
+
+	padding-inline: 6rem;
+	padding-block-start: 5rem;
+	padding-block-end: 4rem;
+	background-color: hsl(var(--navy));
+	color: hsl(var(--white));
+	border: 1px solid hotpink;
+}
+
+.aboutus-text h2 {
+	font-size: 2rem;
+	max-width: 15ch;
+	line-height: 1.3;
+}
+
+.aboutus-text p {
+	max-width: 55ch;
+	margin-top: 1.5rem;
+}
+
+.aboutus-text .cta-link {
+	color: var(--text);
+	background-color: hsl(var(--blue));
+}
+
+/* delivering colour with confidence section */
+
+.delivering-colour {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+
+	padding-block: 5rem;
+	color: var(--text);
+
+	border: 1px solid aqua;
+}
+
+.delivering-colour h2 {
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 500;
+
+	border: 1px solid darkcyan;
+}
+
+.delivering-colour p {
+	text-align: center;
+	max-width: 85ch;
+
+	border: 1px solid blueviolet;
+}
+
+.delivering-colour ul {
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+	padding: 0;
+
+	/* some kind of min max or clamp here */
+	width: min(95%, 60rem);
+
+	margin-block-start: 2rem;
+	border: 1px solid royalblue;
+}
+
+.delivering-colour li {
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	/* align-items: center; */
+
+	min-width: 8rem;
+	min-height: 12.5rem;
+	font-size: 1.3rem;
+	line-height: 1.4;
+
+	background-repeat: no-repeat;
+	background-size: 7rem 7rem;
+	background-position: top center;
+	border: 1px solid firebrick;
+}
+
+.delivering-colour li span {
+	text-align: center;
+	max-width: 10ch;
+}
+
+.delivering-colour-bullet--colour {
+	background-image: url(/svg/delivering-icon-yellow.svg);
+}
+
+.delivering-colour-bullet--reliable {
+	background-image: url(/svg/delivering-icon-blue.svg);
+}
+
+.delivering-colour-bullet--versatile {
+	background-image: url(/svg/delivering-icon-green.svg);
+}
+
+.delivering-colour-bullet--sustainable {
+	background-image: url(/svg/delivering-icon-pink.svg);
+}

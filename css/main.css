@@ -1,1 +1,25 @@
-/* styles for calder-dyeing site */
+/* styles for anything within the main element */
+
+.secondary-cta {
+	min-height: 6.5rem;
+	background: linear-gradient(to right, hsl(var(--blue)), hsl(var(--pink)), hsl(var(--yellow)));
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.secondary-cta a {
+	/* font-family for the cta link is handled by the serif utility class whcih is in global.css */
+	/* we have a utility class for the serif font */
+	/* otherwise we have to update every heading class */
+	/* everytime we decide to change the font */
+	font-size: 2rem;
+	color: hsl(var(--white));
+	text-decoration: none;
+}
+
+.pagebreak-gradient {
+	height: 2rem;
+	background: linear-gradient(to left, hsl(var(--blue)), hsl(var(--pink)), hsl(var(--yellow)));
+}

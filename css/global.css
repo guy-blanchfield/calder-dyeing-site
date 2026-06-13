@@ -51,6 +51,11 @@ html {
 
 	--darkteal: 196 14% 42%;
 
+	--yellow: 50 98% 59%;
+	--pink: 310 92% 57%;
+	--green: 160 92% 49%;
+	--blue: 186 70% 54%;
+
 	/* original navy from calder textiles */
 	/* --navy: 220 24% 22%; */
 	--navy: 224 16% 24%;
@@ -65,7 +70,8 @@ html {
 	--darkgrey: 0 0% 64%;
 	--darkergrey: 0 0% 37%;
 
-	--text: hsl(var(--darkernavy));
+	--text: hsl(var(--navy));
+	/* --text: fuchsia; */
 	--muted: hsl(var(--darkgrey));
 	--accent: hsl(var(--navy));
 	--accent-2: hsl(var(--duckeggblue));
@@ -153,12 +159,6 @@ body {
 /* } */
 /* } */
 
-img {
-	/* don't seem to make any difference re setting width and height in img tags, but keep these rules anyway */
-	max-width: 100%;
-	height: auto;
-}
-
 /* main fills all the space between header & footer */
 main {
 	/* background-color: fuchsia; */
@@ -182,6 +182,10 @@ header {
 
 footer {
 	/* min-height: 50px;  */
+}
+
+a {
+	text-decoration: none;
 }
 
 /* ------------ end min-height stuff ------------ */
@@ -209,7 +213,12 @@ footer {
 	display: none;
 }
 
-/* let's have a utility class for the serif font */
+/* tailwind calls its nowrap utility whitespace-nowrap */
+.nowrap {
+	white-space: nowrap;
+}
+
+/* utility class for the serif font */
 /* otherwise we have to update every heading class */
 /* everytime we decide to change the font */
 .serif {
@@ -217,11 +226,6 @@ footer {
 	/* font-family: 'Baskerville Normal', serif; */
 	font-family: "Libre Baskerville", serif;
 	font-weight: normal;
-}
-
-/* tailwind calls its nowrap utility whitespace-nowrap */
-.nowrap {
-	white-space: nowrap;
 }
 
 /* content-wrapper stuff */
@@ -262,6 +266,18 @@ footer {
 /* about us page content fade up was still stuttery on linking to #aboutus from another page */
 .scroll-auto {
 	scroll-behavior: auto;
+}
+
+/* reusable design elements */
+
+.cta-link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 10rem;
+	min-height: 2rem;
+
+	font-weight: 700;
 }
 
 /* this lead para class is applied to slot material in individual pages */

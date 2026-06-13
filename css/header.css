@@ -358,7 +358,7 @@
 }
 
 .navbar .nav-link {
-	color: hsl(var(--navy));
+	color: var(--text);
 	text-decoration: none;
 }
 

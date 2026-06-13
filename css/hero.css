@@ -1,11 +1,49 @@
 /* styles for the hero section */
+/* the hero on the home page has nothing in common with heros on the other pages */
+/* so we need two separate classes */
 
-.hero {
+/* homepage-hero */
+.homepage-hero {
+	display: flex;
+	align-items: center;
+	min-height: 34rem;
 	background-color: hsl(var(--navy));
+	background-image: url(/svg/calder-dyeing-thread-flip.svg);
+	background-repeat: no-repeat;
+	background-size: 40%;
+	background-position: top -30px right -140px;
 }
 
-.hero h1 {
+.homepage-hero-text {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	flex-basis: 50%;
+
+	align-items: start;
+
 	color: hsl(var(--white));
+	margin-inline-start: 5rem;
+
+	border: 1px solid papayawhip;
+}
+
+.homepage-hero-text h1 {
 	font-size: 2rem;
 	text-transform: lowercase;
+}
+
+.homepage-hero-text p {
+	/* font-size: 1rem; */
+	max-width: 52ch;
+	line-height: 1.3;
+}
+
+.homepage-hero-text .cta-link {
+	color: var(--text);
+	background-color: hsl(var(--yellow));
+}
+
+/* hero for the other pages */
+.hero {
 }

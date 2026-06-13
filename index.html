@@ -23,6 +23,7 @@
 		<link href="/css/global.css" rel="stylesheet" />
 		<link href="/css/header.css" rel="stylesheet" />
 		<link href="/css/hero.css" rel="stylesheet" />
+		<link href="/css/home.css" rel="stylesheet" />
 		<link href="/css/main.css" rel="stylesheet" />
 		<link href="/css/footer.css" rel="stylesheet" />
 
@@ -34,7 +35,7 @@
 		<!-- header -->
 		<header class="header">
 			<div class="visually-hidden" id="skip"><a class="" href="#main-content">Skip to Main Content</a></div>
-			<nav class="navbar" id="navbar">
+			<nav class="navbar" id="navbar" aria-label="Main">
 				<!-- extra div container here so we can position the logo and toggler more easily -->
 				<div class="navbar__logo-and-toggler-container">
 					<a class="navbar__logo" href="/">
@@ -94,13 +95,117 @@
 		<!-- hero -->
 
 		<!-- temporary hero for now -->
-		<section class="hero">
-			<h1>The Art of Dyeing</h1>
+		<section class="homepage-hero">
+			<div class="homepage-hero-text">
+				<h1>The Art of Dyeing</h1>
+				<p>
+					At Calder Dyeing, we specialise in the art of dyeing yarn. As an established dye house, our reputation is
+					built on quality, consistency and over 25 years of experience.
+				</p>
+
+				<a href="" class="cta-link">Find out more</a>
+			</div>
 		</section>
 
 		<!-- main -->
 		<main id="main-content">
-			<p>This is the main stuff</p>
+			<!-- this nav contains the exact same links as the header nav, so should have the same aria label -->
+			<!-- see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/navigation_role#repeated_landmarks -->
+
+			<nav class="homepage-buttons" aria-label="Main">
+				<a href="/about/" class="homepage-button homepage-button--aboutus">
+					<div class="homepage-button-icon">
+						<img src="/svg/homepage-button-icon-aboutus.svg" width="50" height="50" />
+					</div>
+					<span>About Us</span>
+				</a>
+
+				<a href="/services/" class="homepage-button homepage-button--services">
+					<div class="homepage-button-icon">
+						<img src="/svg/homepage-button-icon-services.svg" width="37" height="37" />
+					</div>
+					<span>Our Services</span>
+				</a>
+
+				<a href="/sustainability/" class="homepage-button homepage-button--responsibilities">
+					<div class="homepage-button-icon">
+						<img src="/svg/homepage-button-icon-responsibilities.svg" width="40" height="40" />
+					</div>
+					<span>Our Responsibilities</span>
+				</a>
+
+				<a href="/contact/" class="homepage-button homepage-button--contact">
+					<div class="homepage-button-icon">
+						<img src="/svg/homepage-button-icon-contact.svg" width="35" height="35" />
+					</div>
+					<span>Get in Touch</span>
+				</a>
+			</nav>
+
+			<section class="aboutus">
+				<div class="aboutus-image"><!-- bg image will go in this div --></div>
+				<div class="aboutus-text">
+					<!-- we need to group these -->
+					<div>
+						<h2 class="serif">Yarn Dyeing Excellence</h2>
+						<p>
+							For more than two decades we've been refining the craft of yarn dyeing; combining careful attention to
+							detail with a deep understanding of colour. It's what we do, and what we take pride in.
+						</p>
+
+						<p>
+							The Art of Dyeing reflects how we work; with consistency, care and a commitment to doing things properly.
+						</p>
+					</div>
+
+					<div>
+						<h2 class="serif">About Us</h2>
+
+						<p>
+							Based in the heart of West Yorkshire's historic textile industry, Calder Dyeing is a specialist yarn dye
+							house with strong technical expertise and a practical, hands-on ethos.
+						</p>
+
+						<p>
+							We work closely with our customers to deliver consistent, high-quality dyeing, across a wide range of
+							yarns and processes - from fibre and hank to package dyeing. With a focus on reliability, efficiency and
+							long-term partnerships, we support brands and manufacturers both in the UK and internationally.
+						</p>
+					</div>
+
+					<a href="" class="cta-link">Our services</a>
+				</div>
+			</section>
+
+			<div class="pagebreak-gradient">&nbsp;</div>
+
+			<section class="delivering-colour">
+				<h2 class="serif">Delivering colour with confidence</h2>
+
+				<p>
+					We will work with you to deliver colour excellence, expert knowledge and precise control at every stage to
+					ensure consistent, high-quality results you can rely on with efficient turnaround times to keep your
+					production moving.
+				</p>
+
+				<ul class="delivering-colour-bullets">
+					<li class="delivering-colour-bullet delivering-colour-bullet--colour serif"><span>Colour experts</span></li>
+					<li class="delivering-colour-bullet delivering-colour-bullet--reliable serif">
+						<span>Reliable turnaround</span>
+					</li>
+					<li class="delivering-colour-bullet delivering-colour-bullet--versatile serif">
+						<span>Versatile dyers</span>
+					</li>
+					<li class="delivering-colour-bullet delivering-colour-bullet--sustainable serif">
+						<span>Sustainable processes</span>
+					</li>
+				</ul>
+			</section>
+
+			<!-- secondary cta -->
+			<!-- doesn't seem to be any semantically appropriate element for this -->
+			<!-- just go with div -->
+			<div class="secondary-cta serif"><a href="/contact">Contact us.</a></div>
 		</main>
 		<!-- end main -->
 

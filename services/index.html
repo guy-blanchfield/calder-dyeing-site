@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+		<meta
+			content="Calder Dyeing is a specialist yarn dye house with strong technical expertise and a practical hands-on ethos, based in the heart of West Yorkshire's historic textile industry."
+			name="description"
+		/>
+		<meta content="width=device-width,initial-scale=1" name="viewport" />
+		<link
+			href="/fonts/librebaskerville-regular-webfont.woff2"
+			rel="preload"
+			type="font/woff2"
+			as="font"
+			crossorigin=""
+		/>
+		<link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+		<title>Calder Dyeing : Home</title>
+
+		<!-- styles -->
+		<link href="/css/reset.css" rel="stylesheet" />
+		<link href="/css/global.css" rel="stylesheet" />
+		<link href="/css/header.css" rel="stylesheet" />
+		<link href="/css/hero.css" rel="stylesheet" />
+		<link href="/css/home.css" rel="stylesheet" />
+		<link href="/css/main.css" rel="stylesheet" />
+		<link href="/css/footer.css" rel="stylesheet" />
+
+		<script src="/js/navbar-toggler.js" defer></script>
+	</head>
+
+	<!-- body -->
+	<body>
+		<!-- header -->
+		<header class="header">
+			<div class="visually-hidden" id="skip"><a class="" href="#main-content">Skip to Main Content</a></div>
+			<nav class="navbar" id="navbar" aria-label="Main">
+				<!-- extra div container here so we can position the logo and toggler more easily -->
+				<div class="navbar__logo-and-toggler-container">
+					<a class="navbar__logo" href="/">
+						<img src="/svg/calder-dyeing-logo-stack.svg" alt="Calder Dyeing Ltd Logo" width="130" height="58" />
+						<span class="visually-hidden">Calder Textiles Home Page</span>
+					</a>
+					<button
+						aria-controls="navmenu"
+						aria-expanded="false"
+						aria-label="Toggle Mobile Navigation Menu"
+						class="navbar__toggler"
+						data-bs-target="#navmenu"
+						data-bs-toggle="collapse"
+						type="button"
+					>
+						<svg
+							aria-hidden="true"
+							astro-icon="ic:baseline-menu"
+							class="navbar__toggler-icon navbar__toggler-icon--menu"
+							viewBox="0 0 24 24"
+						>
+							<path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="currentColor"></path>
+						</svg>
+						<svg aria-hidden="true" class="navbar__toggler-icon navbar__toggler-icon--close" viewBox="0 0 24 24">
+							<path
+								d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+								fill="currentColor"
+							></path>
+						</svg>
+						<span class="visually-hidden">Menu</span>
+					</button>
+				</div>
+
+				<div class="navmenu" aria-hidden="false" id="navmenu">
+					<ul class="navmenu__menu">
+						<li class="nav-item" id="nav-item__aboutus">
+							<a class="nav-link" href="/#aboutus" id="nav-link__aboutus">About Us</a>
+						</li>
+						<li class="nav-item" id="nav-item__services">
+							<a class="nav-link" href="/services" id="nav-link__services" aria-current="page">Services</a>
+						</li>
+						<li class="nav-item" id="nav-item__sustainability">
+							<a class="nav-link" href="/sustainability" id="nav-link__sustainability">Sustainability</a>
+						</li>
+						<li class="nav-item" id="nav-item__contact">
+							<a class="nav-link" href="/contact" id="nav-link__contact">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<!-- end header -->
+
+		<!-- hero -->
+		<section class="hero hero--services">
+			<h1 class="serif">Our Services</h1>
+		</section>
+
+		<!-- main -->
+		<main id="main-content">
+			<section class="body-content body-content--light">
+				<!-- wrapper div here to control max-width -->
+				<div>
+					<div class="body-content__text">
+						<!-- full height container for the text div so the text div can be vertically centered -->
+						<!-- and the bottom border of this container  serves as the little divider -->
+						<!-- yeah, it's a lot of divs but it's the most elegant and practical solution -->
+
+						<div class="body-content__text-container show-border">
+							<!-- div to keep all the text together -->
+							<div class="body-content__text-group">
+								<h3 class="serif">Hank (Skein) Dyeing</h3>
+								<p>
+									Hank dyeing is our primary service, covering a wide range of yarn types from fine embroidery and
+									knitting yarn to carpet and rug yarn. It brings together traditional craftsmanship and precise
+									laboratory control to ensure consistent colour and quality.
+								</p>
+								<p>
+									We carefully load each dye machine to allow optimal dye penetration, preserving the softness and
+									integrity of the yarn while achieving uniform shades.
+								</p>
+								<p>From start to finish, the hanks are closely monitored to ensure the highest industry standards.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="body-content__img">
+						<img src="/img/dye-house-pink-yarn.webp" alt="Dye House Pink Yarn" />
+					</div>
+				</div>
+			</section>
+
+			<section class="body-content body-content--light">
+				<!-- wrapper div here to control max-width -->
+				<div>
+					<div class="body-content__text">
+						<!-- full height container for the text div so the text div can be vertically centered -->
+						<!-- and the bottom border of this container  serves as the little divider -->
+						<!-- yeah, it's a lot of divs but it's the most elegant and practical solution -->
+
+						<div class="body-content__text-container">
+							<!-- div to keep all the text together -->
+							<div class="body-content__text-group">
+								<h3 class="serif">Critical Lab Colour Matching</h3>
+								<p>
+									Our Critical Lab Colour Matching service plays a key role in delivering precise dyeing, ensuring every
+									shade has a carefully developed and approved recipe before it reaches production.
+								</p>
+								<p>
+									Using modern technology, we replicate or create shades with exceptional accuracy. Every shade is
+									tested under controlled conditions to ensure consistency, colour fastness and production-ready
+									reliability.
+								</p>
+								<p>
+									When uncompromising colour integrity is required, our lab delivers results you can trust - first time,
+									every time.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="body-content__img">
+						<img src="/img/dye-colours-crop-50pc.webp" alt="Dye Colours" />
+					</div>
+				</div>
+			</section>
+
+			<!-- body-content dark -->
+			<section class="body-content body-content--dark">
+				<!-- wrapper div here to control max-width -->
+				<div>
+					<div class="body-content__img">
+						<img src="/img/dyed-green-carpet-yarn.webp" alt="Dyed green carpet yarn" />
+					</div>
+
+					<div class="body-content__text">
+						<!-- full height container for the text div so the text div can be vertically centered -->
+						<!-- and the bottom border of this container  serves as the little divider -->
+						<!-- yeah, it's a lot of divs but it's the most elegant and practical solution -->
+
+						<div class="body-content__text-container show-border">
+							<!-- div to keep all the text together -->
+							<div class="body-content__text-group">
+								<h3 class="serif">Package Dyeing</h3>
+								<p>
+									Our Package Dyeing involves winding yarn onto perforated packages which allows dye to penetrate evenly
+									through the material for consistent and level shades.
+								</p>
+								<p>Compared to hank dyeing, the system uses less water and energy.</p>
+								<p>
+									Again, we maintain close control throughout the process, with each batch assessed to ensure the yarn
+									quality is preserved and the colour remains unchanged.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="body-content body-content--dark">
+				<!-- wrapper div here to control max-width -->
+				<div>
+					<div class="body-content__img">
+						<img src="/img/wool-dyeing-poms.webp" alt="Wool dyeing poms" />
+					</div>
+
+					<div class="body-content__text">
+						<!-- full height container for the text div so the text div can be vertically centered -->
+						<!-- and the bottom border of this container  serves as the little divider -->
+						<!-- yeah, it's a lot of divs but it's the most elegant and practical solution -->
+
+						<div class="body-content__text-container">
+							<!-- div to keep all the text together -->
+							<div class="body-content__text-group">
+								<h3 class="serif">Fibre (Stock) Dyeing</h3>
+								<p>
+									Our Fibre Dye process ensures that every strand of fibre absorbs dye evenly for rich, consistent
+									tones.
+								</p>
+								<p>
+									It is ideal for producing larger coloured batches that remains consistent through to the finished
+									yarn.
+								</p>
+								<p>The process allows the fibres to stay soft, strong, and ready for spinning.</p>
+
+								<a href="" class="cta-link">Get in touch</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<div class="pagebreak-gradient">&nbsp;</div>
+
+			<section class="wecanhelp">
+				<h2 class="serif">More ways we can help</h2>
+
+				<ul class="wecanhelp-bullets">
+					<li class="wecanhelp-bullet wecanhelp-bullet--scouring">
+						<h3 class="serif">Scouring</h3>
+						<div>
+							Gently cleaning fibres to remove oils, dirt and impurities, scouring preserves fibre strength and
+							softness, preparing them for the next process.
+						</div>
+					</li>
+					<li class="wecanhelp-bullet wecanhelp-bullet--winding">
+						<h3 class="serif">Winding</h3>
+						<div>
+							Converting yarn from hanks onto cones, parallel tubes or cheeses, winding prepares yarn for the next
+							process.
+						</div>
+					</li>
+					<li class="wecanhelp-bullet wecanhelp-bullet--various">
+						<h3 class="serif">Various <span class="nowrap">After-treatments</span></h3>
+						<div>
+							A range of after-treatments can be applied to improve yarn performance or meet specific requirements,
+							including anti-static finishes, flame proofing and autoclaving.
+						</div>
+					</li>
+					<li class="dwecanhelp-bullet wecanhelp-bullet--collections">
+						<h3 class="serif">Collection &amp; Delivery</h3>
+						<div>
+							Local collection and delivery are available on request, helping to keep production moving and making the
+							whole process more convenient.
+						</div>
+					</li>
+				</ul>
+			</section>
+
+			<!-- secondary cta -->
+			<!-- doesn't seem to be any semantically appropriate element for this -->
+			<!-- just go with div -->
+			<div class="secondary-cta serif"><a href="/contact">Let&rsquo;s discuss your requirements.</a></div>
+		</main>
+		<!-- end main -->
+
+		<!-- footer -->
+		<footer class="footer" id="footer">
+			<div class="footer__upper-panel">
+				<div class="footer__social-links">
+					<a><img src="/svg/instagram-icon.svg" alt="instagram-icon" width="40" height="40" /></a>
+					<a><img src="/svg/linkedin-icon.svg" alt="linkedin-icon" width="40" height="40" /></a>
+				</div>
+
+				<div class="footer__company-logos">
+					<img class="calderdyeing-logo" src="/svg/calder-dyeing-logo.svg" width="220" height="30" />
+					<img class="caldertextiles-logo" src="/svg/calder-textiles-logo.svg" width="150" height="60" />
+				</div>
+			</div>
+			<div class="footer__lower-panel">
+				<div class="footer__company-number">UK Registered Company No. 1803068</div>
+				<div class="footer__links">
+					<a class="footer__link" href="/privacy">Privacy</a> |
+					<a class="footer__link" href="/contact">Contact</a>
+				</div>
+				<div class="footer__designedby">
+					Site designed by
+					<a class="footer__dayeightagency-link" href="https://www.dayeightagency.co.uk">Day Eight</a>
+				</div>
+			</div>
+		</footer>
+
+		<!-- end footer -->
+	</body>
+	<!-- end body -->
+</html>

@@ -63,4 +63,25 @@
 
 /* hero for the other pages */
 .hero {
+	display: flex;
+	align-items: center;
+	min-height: 25rem;
+	/* aspect-ratio: 4 / 1; */
+	padding-inline-start: 6rem;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: hsl(var(--navy));
+
+	border-bottom: 2.5rem solid hsl(var(--navy));
+	/* background-position: top left; */
+}
+
+.hero--services {
+	background-image: image-set(url(/img/hero-bg-services.webp) 1x);
+}
+
+.hero h1 {
+	color: hsl(var(--white));
+	font-size: 3.3rem;
+	font-weight: 500;
 }

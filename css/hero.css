@@ -84,6 +84,10 @@
 	background-image: image-set(url(/img/hero-bg-sustainability.webp) 1x);
 }
 
+.hero--contact {
+	background-image: image-set(url(/img/hero-bg-contact.webp) 1x);
+}
+
 .hero h1 {
 	color: hsl(var(--white));
 	font-size: 3.3rem;

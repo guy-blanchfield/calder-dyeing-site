@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+		<meta
+			content="Calder Dyeing is a specialist yarn dye house with strong technical expertise and a practical hands-on ethos, based in the heart of West Yorkshire's historic textile industry."
+			name="description"
+		/>
+		<meta content="width=device-width,initial-scale=1" name="viewport" />
+		<link
+			href="/fonts/librebaskerville-regular-webfont.woff2"
+			rel="preload"
+			type="font/woff2"
+			as="font"
+			crossorigin=""
+		/>
+		<link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+		<title>Contact Us : Calder Dyeing</title>
+
+		<!-- styles -->
+		<link href="/css/reset.css" rel="stylesheet" />
+		<link href="/css/global.css" rel="stylesheet" />
+		<link href="/css/header.css" rel="stylesheet" />
+		<link href="/css/hero.css" rel="stylesheet" />
+		<link href="/css/home.css" rel="stylesheet" />
+		<link href="/css/main.css" rel="stylesheet" />
+		<link href="/css/footer.css" rel="stylesheet" />
+
+		<script src="/js/navbar-toggler.js" defer></script>
+	</head>
+
+	<!-- body -->
+	<body>
+		<!-- header -->
+		<header class="header">
+			<div class="visually-hidden" id="skip"><a class="" href="#main-content">Skip to Main Content</a></div>
+			<nav class="navbar" id="navbar" aria-label="Main">
+				<!-- extra div container here so we can position the logo and toggler more easily -->
+				<div class="navbar__logo-and-toggler-container">
+					<a class="navbar__logo" href="/">
+						<img src="/svg/calder-dyeing-logo-stack.svg" alt="Calder Dyeing Ltd Logo" width="130" height="58" />
+						<span class="visually-hidden">Calder Textiles Home Page</span>
+					</a>
+					<button
+						aria-controls="navmenu"
+						aria-expanded="false"
+						aria-label="Toggle Mobile Navigation Menu"
+						class="navbar__toggler"
+						data-bs-target="#navmenu"
+						data-bs-toggle="collapse"
+						type="button"
+					>
+						<svg
+							aria-hidden="true"
+							astro-icon="ic:baseline-menu"
+							class="navbar__toggler-icon navbar__toggler-icon--menu"
+							viewBox="0 0 24 24"
+						>
+							<path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="currentColor"></path>
+						</svg>
+						<svg aria-hidden="true" class="navbar__toggler-icon navbar__toggler-icon--close" viewBox="0 0 24 24">
+							<path
+								d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+								fill="currentColor"
+							></path>
+						</svg>
+						<span class="visually-hidden">Menu</span>
+					</button>
+				</div>
+
+				<div class="navmenu" aria-hidden="false" id="navmenu">
+					<ul class="navmenu__menu">
+						<li class="nav-item" id="nav-item__aboutus">
+							<a class="nav-link" href="/#aboutus" id="nav-link__aboutus">About Us</a>
+						</li>
+						<li class="nav-item" id="nav-item__services">
+							<a class="nav-link" href="/services" id="nav-link__services">Services</a>
+						</li>
+						<li class="nav-item" id="nav-item__sustainability">
+							<a class="nav-link" href="/sustainability" id="nav-link__sustainability">Sustainability</a>
+						</li>
+						<li class="nav-item" id="nav-item__contact">
+							<a class="nav-link" href="/contact" id="nav-link__contact" aria-current="page">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<!-- end header -->
+
+		<!-- hero -->
+		<section class="hero hero--contact">
+			<h1 class="serif">Contact Us</h1>
+		</section>
+
+		<!-- main -->
+		<main id="main-content">
+			<section class="body-content body-content--light body-content--contact">
+				<!-- wrapper div here to control max-width -->
+				<div>
+					<div class="body-content__text">
+						<!-- full height container for the text div so the text div can be vertically centered -->
+						<!-- and the bottom border of this container  serves as the little divider -->
+						<!-- yeah, it's a lot of divs but it's the most elegant and practical solution -->
+
+						<div class="body-content__text-container">
+							<!-- div to keep all the text together -->
+							<div class="body-content__text-group">
+								<h3 class="serif">Contact Us</h3>
+								<p>
+									Talk to us. Our experienced, friendly team is here to deliver the right solution for you wherever you
+									are in the world.
+								</p>
+
+								<address>
+									<div>
+										Calder Dyeing Ltd<br />
+										Dewsbury Mills<br />
+										Thornhill Road<br />
+										Dewsbury<br />
+										WF12 9QE<br />
+										United Kingdom
+									</div>
+
+									<div>
+										<span>T</span> <a href="">+44 (0)1924 456 411</a>
+										<br />
+										<span>F</span> +44 (0)1924 487 387
+										<br />
+										<span>E</span>
+										<a href="">some.name@some.domain.co.uk</a>
+									</div>
+								</address>
+							</div>
+						</div>
+					</div>
+
+					<div class="body-content__map">
+						<div>&nbsp;</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<!-- end main -->
+
+		<!-- footer -->
+		<footer class="footer" id="footer">
+			<div class="footer__upper-panel">
+				<div class="footer__social-links">
+					<a><img src="/svg/instagram-icon.svg" alt="instagram-icon" width="40" height="40" /></a>
+					<a><img src="/svg/linkedin-icon.svg" alt="linkedin-icon" width="40" height="40" /></a>
+				</div>
+
+				<div class="footer__company-logos">
+					<img class="calderdyeing-logo" src="/svg/calder-dyeing-logo.svg" width="220" height="30" />
+					<img class="caldertextiles-logo" src="/svg/calder-textiles-logo.svg" width="150" height="60" />
+				</div>
+			</div>
+			<div class="footer__lower-panel">
+				<div class="footer__company-number">UK Registered Company No. 1803068</div>
+				<div class="footer__links">
+					<a class="footer__link" href="/privacy">Privacy</a> |
+					<a class="footer__link" href="/contact">Contact</a>
+				</div>
+				<div class="footer__designedby">
+					Site designed by
+					<a class="footer__dayeightagency-link" href="https://www.dayeightagency.co.uk">Day Eight</a>
+				</div>
+			</div>
+		</footer>
+
+		<!-- end footer -->
+	</body>
+	<!-- end body -->
+</html>

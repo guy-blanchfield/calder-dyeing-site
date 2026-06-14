@@ -117,6 +117,11 @@
 	padding-block: 1rem;
 }
 
+/* less padding for the images on the sustainabilit page */
+.body-content--sustainability .body-content__img {
+	padding-block: 0.5rem;
+}
+
 .body-content__img img {
 	aspect-ratio: 4 / 3;
 	object-fit: cover;
@@ -169,7 +174,7 @@
 	padding: 0;
 
 	/* some kind of min max or clamp here */
-	width: min(95%, 60rem);
+	width: min(95%, 75rem);
 
 	margin-block-start: 2rem;
 	border: 1px solid royalblue;

@@ -37,7 +37,7 @@
 	overflow: visible;
 	/* border: 1px solid fuchsia; */
 	background-color: hsl(var(--white));
-	border: 1px solid red;
+	/* border: 1px solid red; */
 
 	/* header needs to be sticky */
 	position: sticky;
@@ -83,7 +83,7 @@
 	/* bg colour needs to be here as well as the header */
 	/* because of the expanding navmenu */
 	background-color: hsl(var(--white));
-	border: 1px solid yellowgreen;
+	/* border: 1px solid yellowgreen; */
 	/* height: var(--header-height-calc); */
 	/* display: flex; */
 	/* flex-direction: column; */
@@ -145,7 +145,7 @@
 	/* img:-moz-loading { */
 	/* visibility: hidden; */
 	/* transition: transform 0.2s ease-in-out; */
-	border: 1px solid plum;
+	/* border: 1px solid plum; */
 }
 
 /* more padding for lg and higher */
@@ -272,7 +272,7 @@
 	/* put it back for lg with media query below */
 	/* align-items: start; */
 
-	border: 1px solid cyan;
+	/* border: 1px solid cyan; */
 }
 
 .navmenu:not(.show) {

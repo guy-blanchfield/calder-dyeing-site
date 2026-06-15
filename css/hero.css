@@ -28,7 +28,7 @@
 	color: hsl(var(--white));
 	/* margin-inline-start: 5rem; */
 
-	border: 1px solid papayawhip;
+	/* border: 1px solid papayawhip; */
 }
 
 .homepage-hero-text h1 {
@@ -47,7 +47,7 @@
 	background-size: contain;
 	/* background-position: top left; */
 
-	border: 1px solid salmon;
+	/* border: 1px solid salmon; */
 }
 
 .homepage-hero-text p {

@@ -12,7 +12,7 @@
 	/* min-height: var(--footer-upper-height); */
 	/* padding-top: calc(var(--footer-upper-height) / 3); */
 	padding: 1rem;
-	border: 1px solid aqua;
+	/* border: 1px solid aqua; */
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
@@ -24,7 +24,7 @@
 	/* social links are img inside links which affects the default alignment (they align start not center) */
 	align-items: center;
 
-	border: 1px solid orange;
+	/* border: 1px solid orange; */
 }
 
 .footer__company-logos {
@@ -33,7 +33,7 @@
 	gap: 0.7rem;
 	/* logos are imgs so they align center by default */
 	/* align-items: start; */
-	border: 1px solid orangered;
+	/* border: 1px solid orangered; */
 }
 
 @media (min-width: 992px) {

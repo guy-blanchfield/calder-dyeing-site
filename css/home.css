@@ -7,7 +7,7 @@
 	gap: 4rem;
 	justify-content: center;
 	padding: 4rem;
-	border: 1px solid blueviolet;
+	/* border: 1px solid blueviolet; */
 }
 
 .homepage-button {
@@ -76,7 +76,7 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	/* background-position: top 0% left 0%; */
-	border: 1px solid goldenrod;
+	/* border: 1px solid goldenrod; */
 }
 
 .aboutus-text {
@@ -92,7 +92,7 @@
 	padding-block-end: 4rem;
 	background-color: hsl(var(--navy));
 	color: hsl(var(--white));
-	border: 1px solid hotpink;
+	/* border: 1px solid hotpink; */
 }
 
 .aboutus-text h2 {
@@ -122,7 +122,7 @@
 	padding-block: 5rem;
 	color: var(--text);
 
-	border: 1px solid aqua;
+	/* border: 1px solid aqua; */
 }
 
 .delivering-colour h2 {
@@ -130,14 +130,14 @@
 	font-size: 2rem;
 	font-weight: 500;
 
-	border: 1px solid darkcyan;
+	/* border: 1px solid darkcyan; */
 }
 
 .delivering-colour p {
 	text-align: center;
 	max-width: 85ch;
 
-	border: 1px solid blueviolet;
+	/* border: 1px solid blueviolet; */
 }
 
 .delivering-colour ul {
@@ -150,7 +150,7 @@
 	width: min(95%, 60rem);
 
 	margin-block-start: 2rem;
-	border: 1px solid royalblue;
+	/* border: 1px solid royalblue; */
 }
 
 .delivering-colour li {
@@ -167,7 +167,7 @@
 	background-repeat: no-repeat;
 	background-size: 7rem 7rem;
 	background-position: top center;
-	border: 1px solid firebrick;
+	/* border: 1px solid firebrick; */
 }
 
 .delivering-colour li span {

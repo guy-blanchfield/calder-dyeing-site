@@ -452,7 +452,8 @@
 		content: "";
 		position: absolute;
 		/* display: inline-block; */
-		background-color: var(--muted);
+		/* background-color: var(--muted); */
+		background-image: linear-gradient(to left, hsl(var(--blue)), hsl(var(--pink)), hsl(var(--yellow)));
 		height: 1px;
 		width: calc(100% - calc(var(--nav-link-padding-inline) * 2));
 		/* width: 100%; */

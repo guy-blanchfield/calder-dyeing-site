@@ -3,6 +3,8 @@
 // edited for es6, and to remove .hidden class once email address has been decoded
 // so we don't see the big ugly encoded text
 
+console.log("decodeEmail running!");
+
 // Find all the elements on the page that use class="eml-protected"
 // (leave this as getElementsByClassName - it returns a live list, querySelectorAll is static)
 const allElements = document.getElementsByClassName("eml-protected");
@@ -18,12 +20,14 @@ function updateAnchor(el) {
 	// (why use innerHTML to get but textContent to set? consider changing)
 	const encoded = el.innerHTML;
 	// const encoded = el.textContent;
+	console.log(encoded);
 
 	// decode the email, using the decodeEmail() function from before
 	const decoded = decodeEmail(encoded);
 
 	// Replace the text (displayed) content
 	el.textContent = decoded;
+	// el.textContent = "This is the replaced text";
 
 	// Set the link to be a "mailto:" link
 	el.href = "mailto:" + decoded;

@@ -141,6 +141,7 @@
 
 .body-content--contact .body-content__text-container {
 	max-width: 36ch;
+	text-wrap: balance;
 }
 
 .body-content--contact address {
@@ -152,6 +153,13 @@
 
 .body-content--contact address a {
 	color: var(--text);
+}
+
+.body-content--contact address a:is(:hover, :focus-visible) {
+	background-image: linear-gradient(to left, hsl(var(--blue)), hsl(var(--pink)), hsl(var(--yellow)));
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 /* .body-content--contact .address__company {

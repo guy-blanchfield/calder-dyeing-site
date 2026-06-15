@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Email Obfuscator</title>
+
+		<script src="js/obfuscateEmail.js" defer></script>
+	</head>
+	<body>
+		<h1>Email Obfuscator</h1>
+
+		<form>
+			<label for="enter-email">Enter email</label>
+			<input type="text" name="input" class="input" />
+
+			<button class="button">Obfuscate!</button>
+		</form>
+
+		<div>Your obfuscated email is: <span class="result"></span></div>
+	</body>
+
+	<script>
+		const input = document.querySelector(".input");
+
+		const result = document.querySelector(".result");
+
+		const button = document.querySelector(".button");
+
+		button.addEventListener("click", (e) => {
+			e.preventDefault();
+			console.log("you done clicked the button");
+			const emailToEncode = input.value;
+			console.log("emailToEncode:", emailToEncode);
+			// don't know much about the second parameter of obfuscateEmail
+			// other than it's used to generate a hex key, and in the example it's a 3 digit number
+			const emailObf = encodeEmail(emailToEncode, 156);
+			result.textContent = emailObf;
+		});
+	</script>
+</html>

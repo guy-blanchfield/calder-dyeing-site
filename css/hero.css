@@ -11,10 +11,12 @@
 	padding-block: 6rem;
 	padding-inline-start: 6rem;
 	background-color: hsl(var(--navy));
-	background-image: url(/svg/calder-dyeing-thread-flip.svg);
+	/* background-image: url(/svg/calder-dyeing-thread-flip.svg); */
+	background-image: url(/svg/calder-dyeing-yarn.svg);
 	background-repeat: no-repeat;
-	background-size: 40%;
-	background-position: top -30px right -140px;
+	/* think we need an absolute size here otherwise it scales relative to the parent width */
+	background-size: 32rem;
+	background-position: top -35px right -30px;
 }
 
 .homepage-hero-text {
@@ -35,14 +37,14 @@
 	font-size: 2rem;
 	text-transform: lowercase;
 
-	/* temporary placeholder bg img */
+	/* text replace bg svg */
 	text-indent: -9999px;
 	display: block;
 	aspect-ratio: 2.6 / 1;
 	min-width: 34rem;
 	/* min-height: 13rem; */
 
-	background-image: url(/img/art-of-dyeing-placeholder.webp);
+	background-image: url(/svg/the-art-of-dyeing-outlines.svg);
 	background-repeat: no-repeat;
 	background-size: contain;
 	/* background-position: top left; */
@@ -57,6 +59,7 @@
 }
 
 .homepage-hero-text .cta-link {
+	margin-block-start: 1rem;
 	color: var(--text);
 	/* background-color: hsl(var(--yellow)); */
 	background-image: linear-gradient(

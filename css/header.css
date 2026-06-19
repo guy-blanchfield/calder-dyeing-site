@@ -150,7 +150,7 @@
 	padding-inline: 1rem;
 	/* img:-moz-loading { */
 	/* visibility: hidden; */
-	/* transition: transform 0.2s ease-in-out; */
+	transition: scale 0.2s ease-in-out;
 	/* border: 1px solid plum; */
 }
 
@@ -164,7 +164,9 @@
 
 .navbar__logo:focus-visible {
 	/* outline: 1px dotted hsl(var(--white)); */
-	outline: 1px solid hsl(var(--white) / 0.5);
+
+	/* don't need this if we're scaling on hover and focus */
+	/* outline: 1px solid hsl(var(--white) / 0.5); */
 }
 
 .navbar__logo:is(:hover, :focus-visible) {
@@ -174,6 +176,7 @@
 	/* animation: logo-pop 0.4s ease-in-out; */
 	/* transform: scale(1.05); */
 	/* background-color: hsl(var(--white) / 0.2); */
+	scale: 0.9;
 }
 
 .navbar__logo:is(:hover, :focus-visible) .navbar__logo-svg {

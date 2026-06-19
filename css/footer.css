@@ -27,6 +27,41 @@
 	/* border: 1px solid orange; */
 }
 
+.footer__social-links a {
+	color: hsl(var(--blue));
+	/* transition: scale 0.3s ease-in-out; */
+}
+
+.footer__social-links a:is(:hover, :focus-visible) {
+	/* color: hsl(var(--pink)); */
+	/* scale: 87.5%; */
+}
+
+.footer__social-links a svg {
+	fill: currentColor;
+}
+
+.footer__social-links--instagram {
+	width: 2.5rem;
+	aspect-ratio: 1;
+	transition: scale 0.3s ease-in-out;
+}
+
+.footer__social-links--instagram:is(:hover, :focus-visible) {
+	/* color: hsl(var(--pink)); */
+	scale: 87.5%;
+}
+
+.footer__social-links--linkedin {
+	width: 2.5rem;
+	aspect-ratio: 1;
+}
+
+.footer__social-links--linkedin:is(:hover, :focus-visible) {
+	color: hsl(var(--pink));
+	/* scale: 100%; */
+}
+
 .footer__company-logos {
 	display: flex;
 	flex-direction: column;

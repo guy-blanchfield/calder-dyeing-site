@@ -63,6 +63,10 @@ html {
 	--darkernavy: 216 8% 20%;
 
 	--white: 0 0% 100%;
+
+	/* light grey for the box shadows */
+	--shadowgrey: 204 6% 83%;
+
 	/* offwhite from the duckeggblue */
 	--offwhite: 198 9% 83%;
 
@@ -226,6 +230,10 @@ a {
 	/* font-family: 'Baskerville Normal', serif; */
 	font-family: "Libre Baskerville", serif;
 	font-weight: normal;
+}
+
+.bold {
+	font-weight: 700;
 }
 
 /* content-wrapper stuff */

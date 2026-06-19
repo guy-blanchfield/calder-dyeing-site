@@ -15,15 +15,24 @@
 	min-height: 12.5rem;
 
 	padding: 0.7rem;
-
 	background-color: hsl(var(--white));
-	box-shadow: 10px 10px 25px 5px #d0d3d5;
-	/* should probably put the shadow on an empty div positioned uner the button */
+
+	transition: scale 0.3s ease-in-out;
+	/* transform 0.3s ease-in-out; */
+}
+
+.homepage-button-container {
+	display: flex;
+	/* border: 1px solid fuchsia; */
+	/* background-color: hsl(var(--shadowgrey)); */
+	box-shadow: 10px 10px 25px 5px hsl(var(--shadowgrey));
+	/* shadow is on the container div */
 	/* so it doesn't move when the button scales */
 }
 
 .homepage-button:is(:hover, :focus-visible) {
-	/* scale: 1.1; */
+	scale: 1.075;
+	/* transform: translateY(-3px); */
 }
 /* 
 :is(:hover, :focus-visible) */
@@ -108,7 +117,34 @@
 
 .aboutus-text .cta-link {
 	color: var(--text);
-	background-color: hsl(var(--blue));
+	/* background-color: hsl(var(--blue)); */
+	background-image: linear-gradient(
+		to right,
+		hsl(var(--blue)) 0% 33%,
+		hsl(var(--pink)) 50%,
+		hsl(var(--yellow)) 66% 100%
+	);
+	background-size: 300%;
+	background-position: 0 0;
+
+	transition: background-position 0.5s ease-in;
+}
+
+.theyellowtobluegradient {
+	background-image: linear-gradient(
+		to right,
+		hsl(var(--yellow)) 0% 33%,
+		hsl(var(--pink)) 50%,
+		hsl(var(--blue)) 66% 100%
+	);
+}
+
+.aboutus-text .cta-link:is(:hover, :focus-visible) {
+	/* color: var(--text); */
+	/* background-color: hsl(var(--blue)); */
+	/* background-image: linear-gradient(to left, hsl(var(--blue)), hsl(var(--pink)), hsl(var(--yellow))); */
+	/* background-size: 200%; */
+	background-position: 100% 0;
 }
 
 /* delivering colour with confidence section */

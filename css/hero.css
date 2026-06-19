@@ -58,7 +58,20 @@
 
 .homepage-hero-text .cta-link {
 	color: var(--text);
-	background-color: hsl(var(--yellow));
+	/* background-color: hsl(var(--yellow)); */
+	background-image: linear-gradient(
+		to right,
+		hsl(var(--yellow)) 0% 33%,
+		hsl(var(--pink)) 50%,
+		hsl(var(--blue)) 66% 100%
+	);
+	background-size: 300%;
+	background-position: 0 0;
+	transition: background-position 0.5s ease-in-out;
+}
+
+.homepage-hero-text .cta-link:is(:hover, :focus-visible) {
+	background-position: 100% 0;
 }
 
 /* hero for the other pages */

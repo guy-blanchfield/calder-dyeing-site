@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+		<meta
+			content="Calder Dyeing is a specialist yarn dye house with strong technical expertise and a practical hands-on ethos, based in the heart of West Yorkshire's historic textile industry."
+			name="description"
+		/>
+		<meta content="width=device-width,initial-scale=1" name="viewport" />
+
+		<link
+			href="/fonts/librebaskerville-regular-webfont.woff2"
+			rel="preload"
+			type="font/woff2"
+			as="font"
+			crossorigin=""
+		/>
+		<link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+		<title>Contact Us : Calder Dyeing</title>
+
+		<!-- styles -->
+		<link href="/css/reset.css" rel="stylesheet" />
+		<link href="/css/global.css" rel="stylesheet" />
+		<link href="/css/header.css" rel="stylesheet" />
+		<link href="/css/hero.css" rel="stylesheet" />
+		<link href="/css/home.css" rel="stylesheet" />
+		<link href="/css/main.css" rel="stylesheet" />
+		<link href="/css/footer.css" rel="stylesheet" />
+		<link href="/css/googlemap.css" rel="stylesheet" />
+
+		<script src="/js/navbar-toggler.js" defer></script>
+		<script src="/js/decodeEmail.js" defer></script>
+
+		<!-- this script needs to have executed before the external google script calls initMap -->
+
+		<script src="/js/google-map-key.js"></script>
+		<script>
+			// how we can gonna put the key in without .env variables?
+			// const apiKey = import.meta.env.MAPS_API_KEY;
+			// import.meta will work in a module, is that something that'll work?
+			// get it from a dedicated js file for now (see above) and gitignore that one file
+
+			console.log("apiKey:", apiKey);
+
+			// prettier-ignore
+			(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+			       ({key: apiKey, v: "weekly"});
+		</script>
+
+		<!-- this defines a new insertBefore method to prevent google maps from downloading fonts -->
+		<!-- see: https://stackoverflow.com/questions/25523806/google-maps-v3-prevent-api-from-loading-roboto-font/25902239#25902239 -->
+		<script src="/js/prevent-maps-font-download.js" defer></script>
+
+		<!-- tested this to confirm that type=module does cause it to defer, without it, it runs first -->
+		<script src="/js/google-map.js" defer></script>
+	</head>
+
+	<!-- body -->
+	<body style="height: 85vh">
+		<div class="google-map-div" id="map"></div>
+		<!-- <div id="map">google maps here</div> -->
+	</body>
+	<!-- end body -->
+</html>

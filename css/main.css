@@ -11,10 +11,8 @@
 	padding-block-start: 2rem; */
 }
 
-/* wrapper div */
-.body-content > div {
-	display: flex;
-
+/* wrapper div - maybe move this to global as it's a utility */
+.limit-width-wrapper {
 	/* min() here so content doesn't get too wide on large displays */
 	width: min(100%, 75rem);
 
@@ -22,6 +20,11 @@
 	/* padding: 0.3rem; */
 	/* gap: 0.2rem; */
 	/* border: 1px solid hotpink; */
+}
+
+/* flex utility, mostly used in conjuntion with the limit width wrapper */
+.flex {
+	display: flex;
 }
 
 .body-content--light {
@@ -79,7 +82,7 @@
 .body-content--dark .show-border {
 	/* put a bottom border on it that serves as the lttle divider */
 	/* border-bottom: 1px solid hsl(var(--white)); */
-	border-bottom: 1px solid hsl(var(--white));
+	border-bottom: 1px solid hsl(var(--white) / 0.75);
 }
 
 .body-content__text-group {
@@ -188,16 +191,26 @@
 	justify-content: end;
 	/* any padding here has to symmetrical b/c everything's centred */
 	padding-block: 1.5rem;
+
+	/* border: 1px solid greenyellow; */
 }
 
-.body-content__map div {
-	min-width: 42rem;
-	aspect-ratio: 4 / 3;
+/* google-map-div (the div that the map is injected into) is using padding to control width and height */
+/* so we need an extra container if we want padding and suchlike */
+/* probably only need vertical padding */
+.body-content__map-container {
+	flex-basis: 100%;
+	padding-block: 2rem;
+	/* height: 20rem; */
+	/* display: flex; */
+
+	/* min-width: 42rem; */
+	/* aspect-ratio: 4 / 3; */
 	/* min-height: 25rem; */
 	/* temporary placeholder image */
-	background-image: url(/img/google-map-placeholder.webp);
-	background-repeat: no-repeat;
-	background-size: cover;
+	/* background-image: url(/img/google-map-placeholder.webp); */
+	/* background-repeat: no-repeat; */
+	/* background-size: cover; */
 	/* border: 1px dashed orchid; */
 }
 /* more ways we can help section */
@@ -317,9 +330,71 @@
 	font-size: 2rem;
 	color: hsl(var(--white));
 	text-decoration: none;
+
+	transition: scale 0.3s ease-in-out;
+}
+
+.secondary-cta a:is(:hover, :focus-visible) {
+	scale: 87.5%;
 }
 
 .pagebreak-gradient {
 	height: 2rem;
 	background: linear-gradient(to left, hsl(var(--blue)), hsl(var(--pink)), hsl(var(--yellow)));
+}
+
+/* privacy page stuff */
+
+.body-content--single-column {
+	justify-content: center;
+	/* border: 1px solid fuchsia; */
+}
+.body-content--single-column h1 {
+	font-size: 3rem;
+	font-weight: 500;
+	padding-block: 2rem;
+}
+
+.body-content--single-column h2 {
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: var(--muted);
+	/* margin-top: 2rem; */
+	margin-bottom: 2rem;
+}
+
+.body-content--single-column h2:not(:first-of-type) {
+	margin-top: 4rem;
+}
+
+.body-content--single-column p {
+	max-width: 80ch;
+	margin-block-end: 1rem;
+}
+
+.body-content--single-column ul {
+	max-width: 75ch;
+	color: hsl(var(--darkergrey));
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.body-content--single-column ul li {
+	margin-bottom: 1rem;
+}
+
+.body-content--single-column address {
+	font-style: normal;
+}
+
+.body-content--single-column a {
+	/* color: var(--text); */
+	color: var(--accent-2);
+	text-decoration: none;
+}
+
+.body-content--single-column a:is(:hover, :focus-visible) {
+	color: var(--accent-2);
+	/* text-decoration: none; */
+	border-bottom: 1px dotted var(--accent-2);
 }

@@ -1,0 +1,77 @@
+.google-map-div {
+	/* min-height: 30rem;  */
+	/* min-height: 100%; */
+
+	/* not sure we need this */
+	position: relative;
+
+	/* padding-top and padding-bottom is based on the parent element’s width. */
+	/* So if you had an element that is 500px wide, and padding-top of 100%, the padding-top would be 500px. */
+	/* see: https://css-tricks.com/aspect-ratio-boxes/ */
+	/* without the padding or a min-height the map box will have height of 0 */
+	/* so padding-bottom is what's giving it height */
+	/* and the percentage is a percentage of the width */
+	/* so 75% is 4/3, 66.67% is 3/2, 56.25% is 16/9 */
+	/* it's better than using min-height bc it stays proportional */
+	/* otherwise it gets tall and narrow at mobile dimensions */
+
+	/* this all works because google map gives itself position: absolute and */
+	/* applies an inline style of position: relative; overflow: hidden to its parent div    */
+	padding-bottom: 67%;
+
+	/* same principle for the width */
+	/* this only became necessary when the parent */
+	/* (bootstrap col in ContactSection) got display: flex in order to do vertical align center */
+	/* without this, map div has height but no width (just a 2px vertical line) */
+	/* in the end, decided not to go with align-items-center on it anyway - looks odd */
+	/* but leave this on here, for future robustness */
+	padding-right: 100%;
+
+	/* background-color: #ccc */
+	border: 1px solid hsl(var(--navy) / 0.25);
+}
+
+/* alternative map aspect ratio for tablet size screens */
+/* it looks weird when the map is shorter than the contact details text */
+/* square looks nice in one column at mobile sizes as well */
+
+/* match the bootstrap breakpoints */
+/* https://getbootstrap.com/docs/5.0/layout/breakpoints/#max-width */
+
+@media (max-width: 1199.98px) {
+	.google-map-div {
+		padding-bottom: 100%;
+	}
+}
+
+/* google maps marker drop animation */
+
+@keyframes drop {
+	0% {
+		transform: translateY(-200px) scaleY(0.9);
+		opacity: 0;
+	}
+	5% {
+		opacity: 0.7;
+	}
+	50% {
+		transform: translateY(0px) scaleY(1);
+		opacity: 1;
+	}
+	65% {
+		transform: translateY(-17px) scaleY(0.9);
+		opacity: 1;
+	}
+	75% {
+		transform: translateY(-22px) scaleY(0.9);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(0px) scaleY(1);
+		opacity: 1;
+	}
+}
+
+.drop {
+	animation: drop 0.3s linear forwards var(--delay-time);
+}

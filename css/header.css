@@ -42,6 +42,12 @@
 	/* header needs to be sticky */
 	position: sticky;
 	top: 0px;
+	/* and needs a z-index otherwise the google map will scroll over the top of it */
+	/* from memory I think google map uses z-index up to 1000 */
+	z-index: 1020;
+
+	/* and a slight box shadow for when white space scrolls under it */
+	box-shadow: 0 0 20px hsl(0 0% 0% / 0.2);
 
 	/* display: flex;
 	flex-direction: column;

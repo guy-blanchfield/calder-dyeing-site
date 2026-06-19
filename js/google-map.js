@@ -1,5 +1,6 @@
 // Initialize and add the map
 let map;
+console.log("google-map.js running!");
 
 async function initMap() {
 	// The location of Calder Textiles
@@ -9,7 +10,8 @@ async function initMap() {
 	// also access infoWindow here
 	//@ts-ignore
 	const { Map, InfoWindow } = await google.maps.importLibrary("maps");
-	const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+	// const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+	const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
 	// will we need to request infoWindow as well?
 
 	// The map, centered at Calder Textiles
@@ -24,6 +26,14 @@ async function initMap() {
 		// https://developers.google.com/maps/documentation/cloud-customization/overview#cloud_tooling
 	});
 
+	// ok so the difference from the old setup (the google map script we used for calder textiles)
+	// is that a new PinElement is assigned to const content which is then used in an options object when
+	// creating a new AdvancedMarkerElement
+
+	// before, the AdvancedMarkerElement was created with just map, draggable, position and title
+	// and the content property of the new AdvancedMarkerElement was assigned to const content
+	const content = new PinElement();
+
 	// The marker, positioned at Calder Textiles
 	const marker = new AdvancedMarkerElement({
 		map: map,
@@ -33,16 +43,22 @@ async function initMap() {
 		// animation: google.maps.Animation.DROP,
 		position: caldertextiles,
 		title: "Calder Textiles",
+		content,
 	});
 
-	const content = marker.content;
+	// const content = marker.content;
 
+	// temporarily disabled setting the opacity (because the animationend event wasn't firing)
+	// this is fixed now - see the const content = new PinElement() thing above
 	content.style.opacity = "0";
 	content.addEventListener("animationend", (event) => {
+		console.log("animationend!");
+		// yeah so this event isn't firing :(
 		content.classList.remove("drop");
 		content.style.opacity = "1";
 	});
 
+	// --delay-time set here, and used in the css
 	const delayTime = 1.5;
 	content.style.setProperty("--delay-time", delayTime + "s");
 	// observe the marker content
@@ -84,7 +100,12 @@ async function initMap() {
 const intersectionObserver = new IntersectionObserver((entries) => {
 	for (const entry of entries) {
 		if (entry.isIntersecting) {
+			console.log("is intersecting");
+			// drop class is definitely being added
+			// BUT rules from the class '.drop' are NOT being applied to the marker
+			// Why not?
 			entry.target.classList.add("drop");
+			console.log(entry.target);
 			intersectionObserver.unobserve(entry.target);
 		}
 	}

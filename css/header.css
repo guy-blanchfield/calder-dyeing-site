@@ -152,6 +152,7 @@
 	/* visibility: hidden; */
 	transition: scale 0.2s ease-in-out;
 	/* border: 1px solid plum; */
+	outline: none;
 }
 
 /* more padding for lg and higher */
@@ -163,10 +164,7 @@
 }
 
 .navbar__logo:focus-visible {
-	/* outline: 1px dotted hsl(var(--white)); */
-
-	/* don't need this if we're scaling on hover and focus */
-	/* outline: 1px solid hsl(var(--white) / 0.5); */
+	/* outline: 1px dotted hsl(var(--navy)); */
 }
 
 .navbar__logo:is(:hover, :focus-visible) {
@@ -301,7 +299,7 @@
 }
 .navmenu__menu .nav-link.active,
 .navmenu__menu .nav-link.show {
-	color: #00f;
+	/* color: #00f; */
 }
 
 @media (min-width: 992px) {

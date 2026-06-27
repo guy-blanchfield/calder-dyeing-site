@@ -28,14 +28,13 @@
 }
 
 .footer__social-links a {
+	outline: none;
 	color: hsl(var(--blue));
-	/* transition: scale 0.3s ease-in-out; */
 }
 
-.footer__social-links a:is(:hover, :focus-visible) {
-	/* color: hsl(var(--pink)); */
-	/* scale: 87.5%; */
-}
+/* .footer__social-links a:focus-visible {
+	color: hsl(var(--yellow));
+} */
 
 .footer__social-links a svg {
 	fill: currentColor;
@@ -47,9 +46,11 @@
 	transition: scale 0.3s ease-in-out;
 }
 
-.footer__social-links--instagram:is(:hover, :focus-visible) {
+.footer__social-links--instagram:is(:focus-visible, :hover) {
+	color: hsl(var(--yellow));
 	/* color: hsl(var(--pink)); */
-	scale: 87.5%;
+	/* outline: none; */
+	/* scale: 87.5%; */
 }
 
 .footer__social-links--linkedin {
@@ -59,6 +60,7 @@
 
 .footer__social-links--linkedin:is(:hover, :focus-visible) {
 	color: hsl(var(--pink));
+
 	/* scale: 100%; */
 }
 
@@ -69,6 +71,19 @@
 	/* logos are imgs so they align center by default */
 	/* align-items: start; */
 	/* border: 1px solid orangered; */
+}
+
+.footer__company-logos a {
+	display: flex;
+	/* do vertical and horizontal centering for now */
+	/* might need to change flex direction for mobile / desktop */
+	align-items: center;
+	justify-content: center;
+	/* border: 1px solid #f00; */
+}
+
+.footer__company-logos img {
+	/* border: 1px solid #00f; */
 }
 
 @media (min-width: 992px) {
@@ -96,6 +111,7 @@
 	}
 
 	.calderdyeing-logo {
+		/* to push this down to sit level with the other logo otherwise it's vertically centered */
 		padding-top: 1.7rem;
 	}
 }

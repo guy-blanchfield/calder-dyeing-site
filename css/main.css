@@ -22,7 +22,7 @@
 	/* border: 1px solid hotpink; */
 }
 
-/* flex utility, mostly used in conjuntion with the limit width wrapper */
+/* flex utility, mostly used in conjunction with the limit width wrapper */
 .flex {
 	display: flex;
 }
@@ -156,6 +156,7 @@
 
 .body-content--contact address a {
 	color: var(--text);
+	outline: none;
 }
 
 .body-content--contact address a:is(:hover, :focus-visible) {
@@ -213,6 +214,30 @@
 	/* background-size: cover; */
 	/* border: 1px dashed orchid; */
 }
+
+/* the cta buttons in main (not the home page ctas though) */
+
+.cta-link--services {
+	color: var(--text);
+	/* background-color: hsl(var(--blue)); */
+	/* because the text is white, this can't end on yellow */
+	/* actually gonna try just two colours here */
+	/* lighthouse will probably cmplain about contrast here */
+	background-image: linear-gradient(to right, hsl(var(--pink)) 0% 33%, hsl(var(--blue)) 66% 100%);
+	background-size: 300%;
+	background-position: 0 0;
+
+	transition: background-position 0.5s ease-in;
+}
+
+.cta-link--services:is(:hover, :focus-visible) {
+	/* color: var(--text); */
+	/* background-color: hsl(var(--blue)); */
+	/* background-image: linear-gradient(to left, hsl(var(--blue)), hsl(var(--pink)), hsl(var(--yellow))); */
+	/* background-size: 200%; */
+	background-position: 100% 0;
+}
+
 /* more ways we can help section */
 
 .wecanhelp {
@@ -320,6 +345,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
 }
 
 .secondary-cta a {
@@ -330,12 +356,28 @@
 	font-size: 2rem;
 	color: hsl(var(--white));
 	text-decoration: none;
+	padding: 0.5rem;
 
-	transition: scale 0.3s ease-in-out;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	/* position: relative; */
+	transition: opacity 0.2s ease-in-out;
+
+	/* we need to make this wider than it needs so the hover ::after doesn't shift the text */
+	/* min-width: 50ch; */
 }
 
-.secondary-cta a:is(:hover, :focus-visible) {
-	scale: 87.5%;
+.secondary-cta a:hover {
+	/* scale: 87.5%; */
+	opacity: 75%;
+	/* outline: 1px dotted hsl(var(--white)); */
+}
+
+.secondary-cta a:focus-visible {
+	outline: 1px dotted hsl(var(--white));
 }
 
 .pagebreak-gradient {

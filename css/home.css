@@ -34,6 +34,11 @@
 	scale: 1.075;
 	/* transform: translateY(-3px); */
 }
+
+.homepage-button:focus-visible {
+	/* outline: 1px solid hsl(var(--navy) / 25%); */
+	outline: none;
+}
 /* 
 :is(:hover, :focus-visible) */
 

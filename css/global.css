@@ -283,9 +283,11 @@ a {
 	align-items: center;
 	justify-content: center;
 	min-width: 10rem;
-	min-height: 2rem;
+	min-height: 2.5rem;
 
 	font-weight: 700;
+
+	outline: none;
 }
 
 /* this lead para class is applied to slot material in individual pages */

@@ -1,0 +1,24 @@
+<!-- temporary override for the navlink hovers so we can show this alternative hover effect -->
+<style>
+	.nav-link::after {
+		background-image: none;
+	}
+
+	/* hsl(var(--blue)), hsl(var(--pink)), hsl(var(--yellow))); */
+
+	#nav-link__aboutus::after {
+		background-color: hsl(var(--yellow));
+	}
+
+	#nav-link__services::after {
+		background-color: hsl(var(--blue));
+	}
+
+	#nav-link__sustainability::after {
+		background-color: hsl(var(--green));
+	}
+
+	#nav-link__contact::after {
+		background-color: hsl(var(--pink));
+	}
+</style>

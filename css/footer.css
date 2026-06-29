@@ -67,19 +67,40 @@
 .footer__company-logos {
 	display: flex;
 	flex-direction: column;
-	gap: 0.7rem;
+	gap: 1rem;
+	padding-block-start: 2rem;
 	/* logos are imgs so they align center by default */
 	/* align-items: start; */
 	/* border: 1px solid orangered; */
 }
 
 .footer__company-logos a {
-	display: flex;
+	/* display: flex;
 	/* do vertical and horizontal centering for now */
 	/* might need to change flex direction for mobile / desktop */
-	align-items: center;
+	/* align-items: center;
 	justify-content: center;
-	/* border: 1px solid #f00; */
+	border: 1px solid #f00; */
+}
+
+@media (min-width: 992px) {
+	.footer__company-logos {
+		/* display: flex;
+		flex-direction: column; */
+		gap: 0.7rem;
+		/* logos are imgs so they align center by default */
+		/* align-items: start; */
+		/* border: 1px solid orangered; */
+	}
+
+	.footer__company-logos a {
+		display: flex;
+		/* do vertical and horizontal centering for now */
+		/* might need to change flex direction for mobile / desktop */
+		align-items: center;
+		justify-content: center;
+		/* border: 1px solid #f00; */
+	}
 }
 
 .footer__company-logos img {

@@ -1,0 +1,8 @@
+.theyellowtobluegradient {
+	background-image: linear-gradient(
+		to right,
+		hsl(var(--yellow)) 0% 33%,
+		hsl(var(--pink)) 50%,
+		hsl(var(--blue)) 66% 100%
+	);
+}

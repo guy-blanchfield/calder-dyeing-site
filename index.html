@@ -109,43 +109,45 @@
 			<!-- this nav contains the exact same links as the header nav, so should have the same aria label -->
 			<!-- see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/navigation_role#repeated_landmarks -->
 
-			<nav class="homepage-buttons" aria-label="Main">
-				<!-- probably need another div here so we can do the animated hover with the box shadow -->
-				<div class="homepage-button-container">
-					<a href="#aboutus" class="homepage-button homepage-button--aboutus">
-						<div class="homepage-button-icon">
-							<img src="/svg/homepage-button-icon-aboutus.svg" width="50" height="50" />
-						</div>
-						<span>About Us</span>
-					</a>
-				</div>
+			<nav class="homepage-buttons-nav" aria-label="Main">
+				<ul class="homepage-buttons">
+					<!-- probably need another div here so we can do the animated hover with the box shadow -->
+					<li class="homepage-button-container">
+						<a href="#aboutus" class="homepage-button homepage-button--aboutus">
+							<div class="homepage-button-icon">
+								<img src="/svg/homepage-button-icon-aboutus.svg" width="50" height="50" />
+							</div>
+							<span>About Us</span>
+						</a>
+					</li>
 
-				<div class="homepage-button-container">
-					<a href="/services/" class="homepage-button homepage-button--services">
-						<div class="homepage-button-icon">
-							<img src="/svg/homepage-button-icon-services.svg" width="37" height="37" />
-						</div>
-						<span>Our Services</span>
-					</a>
-				</div>
+					<li class="homepage-button-container">
+						<a href="/services/" class="homepage-button homepage-button--services">
+							<div class="homepage-button-icon">
+								<img src="/svg/homepage-button-icon-services.svg" width="37" height="37" />
+							</div>
+							<span>Our Services</span>
+						</a>
+					</li>
 
-				<div class="homepage-button-container">
-					<a href="/sustainability/" class="homepage-button homepage-button--responsibilities">
-						<div class="homepage-button-icon">
-							<img src="/svg/homepage-button-icon-responsibilities.svg" width="40" height="40" />
-						</div>
-						<span>Our Responsibilities</span>
-					</a>
-				</div>
+					<li class="homepage-button-container">
+						<a href="/sustainability/" class="homepage-button homepage-button--responsibilities">
+							<div class="homepage-button-icon">
+								<img src="/svg/homepage-button-icon-responsibilities.svg" width="40" height="40" />
+							</div>
+							<span>Our Responsibilities</span>
+						</a>
+					</li>
 
-				<div class="homepage-button-container">
-					<a href="/contact/" class="homepage-button homepage-button--contact">
-						<div class="homepage-button-icon">
-							<img src="/svg/homepage-button-icon-contact.svg" width="35" height="35" />
-						</div>
-						<span>Get in Touch</span>
-					</a>
-				</div>
+					<li class="homepage-button-container">
+						<a href="/contact/" class="homepage-button homepage-button--contact">
+							<div class="homepage-button-icon">
+								<img src="/svg/homepage-button-icon-contact.svg" width="35" height="35" />
+							</div>
+							<span>Get in Touch</span>
+						</a>
+					</li>
+				</ul>
 			</nav>
 
 			<section class="aboutus" id="aboutus">

@@ -1,0 +1,19 @@
+.homepage-buttons {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	gap: 1rem;
+	padding-block: 2rem;
+
+	/* border: 1px solid blueviolet; */
+}
+
+@media (min-width: 992px) {
+	.homepage-buttons {
+		flex-direction: row;
+		gap: 4rem;
+		padding: 4rem;
+	}
+}

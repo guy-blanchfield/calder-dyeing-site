@@ -5,11 +5,18 @@
 
 .body-content {
 	display: flex;
+	/* flex-direction: column; */
 	justify-content: center;
 	/* padding-inline-start: 6rem;
 	padding-inline-end: 3rem; 
 	padding-block-start: 2rem; */
 }
+
+/* @media (min-width: 992px) {
+	.body-content {
+		flex-direction: row;
+	}
+} */
 
 /* wrapper div - maybe move this to global as it's a utility */
 .limit-width-wrapper {
@@ -27,6 +34,18 @@
 	display: flex;
 }
 
+/* flex-direction utility, again used with the limit width wrapper */
+/* it'll be direction row for desktop, column for anything below 992 */
+.direction {
+	flex-direction: column;
+}
+
+@media (min-width: 992px) {
+	.direction {
+		flex-direction: row;
+	}
+}
+
 .body-content--light {
 	color: var(--text);
 }
@@ -37,7 +56,7 @@
 }
 
 .body-content__text {
-	flex-basis: 50%;
+	/* flex-basis: 50%; */
 	display: flex;
 	/* if this is column, we can make the text container stretch to full height */
 	flex-direction: column;
@@ -50,7 +69,17 @@
 	justify-content: center; */
 	font-size: 0.9rem;
 
+	padding-block: 2rem;
+	padding-inline: 1rem;
+
 	/* border: 1px solid aqua; */
+}
+
+@media (min-width: 992px) {
+	.body-content__text {
+		padding: 0;
+		flex-basis: 50%;
+	}
 }
 
 /* full height container for the text div so the text div can be vertically centered */
@@ -71,18 +100,27 @@
 }
 
 /* the bottom border needs to be different colour depending on the background */
+/* only for desktop though so the class has no border by default and we apply the border with @media */
 
-.body-content--light .show-border {
-	/* put a bottom border on it that serves as the lttle divider */
-	/* border-bottom: 1px solid var(--text); */
-	border-bottom: 1px solid hsl(var(--navy) / 0.5);
-	/* border-bottom: 1px solid fuchsia; */
-}
-
-.body-content--dark .show-border {
+.show-border {
 	/* put a bottom border on it that serves as the lttle divider */
 	/* border-bottom: 1px solid hsl(var(--white)); */
-	border-bottom: 1px solid hsl(var(--white) / 0.75);
+	border: none;
+}
+
+@media (min-width: 992px) {
+	.body-content--light .show-border {
+		/* put a bottom border on it that serves as the lttle divider */
+		/* border-bottom: 1px solid var(--text); */
+		border-bottom: 1px solid hsl(var(--navy) / 0.5);
+		/* border-bottom: 1px solid fuchsia; */
+	}
+
+	.body-content--dark .show-border {
+		/* put a bottom border on it that serves as the lttle divider */
+		/* border-bottom: 1px solid hsl(var(--white)); */
+		border-bottom: 1px solid hsl(var(--white) / 0.75);
+	}
 }
 
 .body-content__text-group {
@@ -94,8 +132,9 @@
 	/* border-bottom: 1px solid var(--text); */
 }
 
-.body-content__text h3 {
+.body-content__text h2 {
 	font-size: 2rem;
+	line-height: 1.2;
 	text-wrap: balance;
 	margin-bottom: 0.5rem;
 }
@@ -109,19 +148,36 @@
 }
 
 .body-content__img {
-	flex-basis: 50%;
+	/* flex-basis: 50%; */
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	/* any padding here has to symmetrical b/c everything's centred */
-	padding-block: 3rem;
+	/* padding-block-start: 3rem;
+	padding-block-end: 1rem; */
+	/* padding-block: 1rem; */
 
 	/* border: 1px solid yellowgreen; */
 }
 
+@media (min-width: 992px) {
+	.body-content__img {
+		flex-basis: 50%;
+		padding-block: 3rem;
+	}
+}
+
 .body-content--dark .body-content__img {
 	/* any padding here has to symmetrical b/c everything's centred */
-	padding-block: 1rem;
+	padding-block-start: 2rem;
+	padding-block-end: 1rem;
+}
+
+@media (min-width: 992px) {
+	.body-content--dark .body-content__img {
+		/* any padding here has to symmetrical b/c everything's centred */
+		padding-block: 1rem;
+	}
 }
 
 /* extra padding for first and last body-content sections on the sustainability page???? */
@@ -196,12 +252,19 @@
 	/* border: 1px solid greenyellow; */
 }
 
+@media (min-width: 992px) {
+	.body-content__map {
+		/* any padding here has to symmetrical b/c everything's centred */
+		/* padding-block: 1.5rem; */
+	}
+}
+
 /* google-map-div (the div that the map is injected into) is using padding to control width and height */
 /* so we need an extra container if we want padding and suchlike */
 /* probably only need vertical padding */
 .body-content__map-container {
 	flex-basis: 100%;
-	padding-block: 2rem;
+	/* padding-block: 2rem; */
 	/* height: 20rem; */
 	/* display: flex; */
 
@@ -213,6 +276,12 @@
 	/* background-repeat: no-repeat; */
 	/* background-size: cover; */
 	/* border: 1px dashed orchid; */
+}
+
+@media (min-width: 992px) {
+	.body-content__map-container {
+		padding-block: 2rem;
+	}
 }
 
 /* the cta buttons in main (not the home page ctas though) */
@@ -257,6 +326,10 @@
 	text-align: center;
 	font-size: 2rem;
 	font-weight: 500;
+	line-height: 1.2;
+	text-wrap: balance;
+
+	padding-inline: 1rem;
 
 	/* border: 1px solid darkcyan; */
 }
@@ -269,16 +342,38 @@
 }
 
 .wecanhelp ul {
+	/* reset the default ul behaviour */
 	list-style: none;
-	display: flex;
-	justify-content: space-between;
 	padding: 0;
+	/* kp's video on this pattern */
+	/* https://youtu.be/OZ6qKoq7RJU */
+	--min-col-width: 10rem;
+	display: grid;
+	/* we have 2 values for the second argument in repeat (the track listings) because we always want either 2 or 4 columns never 3 */
+	/* see another kp video https://www.youtube.com/shorts/scaiYZISGpk */
+	/* prettier-ignore */
+	grid-template-columns:
+		repeat(
+			auto-fit,
+			minmax(min(var(--min-col-width), 45%), 1fr)
+			minmax(min(var(--min-col-width), 45%), 1fr)
+		);
+	gap: 1rem;
+	/* align-items: center; */
+	justify-items: center;
+	padding-block: 2rem;
 
-	/* some kind of min max or clamp here */
+	/* margin-block-start: 2rem; */
 	width: min(95%, 75rem);
+	/* border: 1px solid blueviolet; */
+}
 
-	margin-block-start: 2rem;
-	/* border: 1px solid royalblue; */
+@media (min-width: 992px) {
+	.wecanhelp ul {
+		/* flex-direction: row; */
+		gap: 0;
+		/* padding-block: 4rem; */
+	}
 }
 
 .wecanhelp li {
@@ -288,11 +383,11 @@
 	align-items: center;
 	/* gap: 0.5rem; */
 	/* this should ensure they're all the same width */
-	flex-basis: 100%;
+	/* flex-basis: 100%; */
 	/* min-width: 15rem; */
 	/* min-height: 18rem; */
 
-	padding-block-start: 8.1rem;
+	padding-block-start: 8rem;
 
 	background-repeat: no-repeat;
 	background-size: 8.5rem;
@@ -306,13 +401,22 @@
 	justify-content: center;
 	min-height: 4rem;
 	margin-block-end: 0.5rem;
-	font-size: 1.3rem;
-	line-height: 1.3;
+	font-size: 1rem;
+	font-weight: 600;
+	line-height: 1.2;
 	text-align: center;
 	max-width: 20ch;
 	text-wrap: balance;
 
 	/* border: 1px solid firebrick; */
+}
+
+@media (min-width: 992px) {
+	.wecanhelp li h3 {
+		font-size: 1.3rem;
+		font-weight: initial;
+		line-height: 1.3;
+	}
 }
 
 .wecanhelp li div {
@@ -356,6 +460,8 @@
 	font-size: 2rem;
 	color: hsl(var(--white));
 	text-decoration: none;
+	text-align: center;
+	line-height: 1.2;
 	padding: 0.5rem;
 
 	display: flex;

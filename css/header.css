@@ -33,6 +33,10 @@
 	/* (we probably won't need the --navbar-vertical-padding now) */
 	/* (header-height-calc is set in global.css) */
 
+	/* we want min-height here so that the header expands with the drop down menu, */
+	/* so we get the box-shadow at the bottom of the drop down menu */
+	/* hmmm this now pushes content down when the header isn't in its sticky state */
+	/* can we force the sticky state? doesn't look like it */
 	height: var(--header-height-calc);
 	overflow: visible;
 	/* border: 1px solid fuchsia; */
@@ -279,7 +283,10 @@
 	/* put it back for lg with media query below */
 	/* align-items: start; */
 
-	/* border: 1px solid cyan; */
+	/* border-bottom: 1px solid cyan; */
+	/* and a slight box shadow for when white space scrolls under it */
+	/* box-shadow: 0 0 20px hsl(0 0% 0% / 0.2); */
+	/* leave the box shadow for now, just make do with the bottom border from the last nav item */
 }
 
 .navmenu:not(.show) {
@@ -533,13 +540,13 @@
 		border-bottom: 1px solid hsl(var(--duckeggblue) / 0.3);
 	}
 
-	/* so the last item in the mobile nav gets closer to the bottom and has no border */
+	/* so the last item in the mobile nav gets closer to the bottom */
 	.nav-item:last-child .nav-link {
 		/* the <nav> has 0.5rem padding bottom so subtract 0.5rem from the bottom padding
 			 of this last item (is set to 1rem above) so it appears the same height as the other 
 			 nav items (in mobile) */
 		/* maybe give it a little more room, try an extra 0.1rem - yeah that feels better */
-		padding-bottom: 0.6rem;
-		border: none;
+		/* padding-bottom: 0.6rem; */
+		/* border: none; */
 	}
 }

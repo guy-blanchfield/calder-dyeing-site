@@ -7,7 +7,7 @@
 .homepage-buttons-nav {
 	display: flex;
 	justify-content: center;
-	border: 1px solid yellowgreen;
+	/* border: 1px solid yellowgreen; */
 }
 .homepage-buttons {
 	/* reset the default ul behaviour */
@@ -32,7 +32,7 @@
 	padding-block: 2rem;
 
 	width: min(95%, 60rem);
-	border: 1px solid blueviolet;
+	/* border: 1px solid blueviolet; */
 }
 
 @media (min-width: 992px) {

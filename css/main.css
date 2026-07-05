@@ -29,6 +29,15 @@
 	/* border: 1px solid hotpink; */
 }
 
+.limit-width-wrapper--single-column {
+	padding-inline: 1rem;
+}
+
+@media (min-width: 992px) {
+	/* .limit-width-wrapper--single-column {
+		padding: 0;
+	} */
+}
 /* flex utility, mostly used in conjunction with the limit width wrapper */
 .flex {
 	display: flex;
@@ -199,8 +208,15 @@
 }
 
 .body-content--contact .body-content__text-container {
-	max-width: 36ch;
+	/* max-width: 36ch; */
 	text-wrap: balance;
+}
+
+@media (min-width: 992px) {
+	.body-content--contact .body-content__text-container {
+		max-width: 36ch;
+		/* text-wrap: balance; */
+	}
 }
 
 .body-content--contact address {

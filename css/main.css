@@ -249,12 +249,16 @@
 
 .body-content--light .body-content__img img {
 	/* limit the size of the image */
-	max-width: 30rem;
+	/* max-width: 30rem; */
+	/* max-width here MUST include the 100% becuase it's overriding the max-width 100% rule from reset.css */
+	max-width: min(30rem, 100%);
 }
 
 .body-content--dark .body-content__img img {
 	/* image is bigger in body-content--dark */
-	max-width: 35rem;
+	/* max-width: 35rem; */
+	/* max-width here MUST include the 100% becuase it's overriding the max-width 100% rule from reset.css */
+	max-width: min(35rem, 100%);
 }
 
 .body-content__map {

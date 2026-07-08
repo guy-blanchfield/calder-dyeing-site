@@ -210,11 +210,13 @@
 .navbar__toggler {
 	aspect-ratio: 1 / 1;
 	border: none;
+	outline: none;
 	border-radius: 0;
 	/* bit of margin-end here to make the horizontal space more like the vertical space */
 	margin-inline-end: 0.3rem;
 
-	/* color: var(--accent); */
+	/* explicitly set the color here in an attempt to stop iphone making it link blue */
+	color: var(--accent);
 	/* background-color: var(--muted); */
 	background-color: transparent;
 	/* border: 1px solid rebeccapurple; */
@@ -222,13 +224,20 @@
 
 /* to make the focus outline thinner */
 .navbar__toggler:focus {
+	/* explicitly set the color here in an attempt to stop iphone making it link blue */
+	color: var(--accent);
 	box-shadow: none;
+	/* from andy bell on removing default styles */
+	outline: none;
+	outline-offset: -4px;
 }
 
 .navbar__toggler:focus-visible {
 	color: var(--accent);
 	/* background-color: var(--muted); */
-	background-color: hsl(var(--white) / 0.5);
+	background-color: hsl(var(--navy) / 0.1);
+	outline: none;
+	/* outline: 1px solid hsl(var(--navy) / 0.5); */
 }
 
 .navbar__toggler-icon {

@@ -1,6 +1,6 @@
 // for the mobile navmenu open/close toggle
 
-console.log("Toggler script running!");
+// console.log("Toggler script running!");
 
 // define vars, get refs
 const navbarToggler = document.querySelector(".navbar__toggler");
@@ -40,7 +40,7 @@ if (queryMinWidthDesktop.matches) {
 
 const toggleMobileNavMenu = (e = null) => {
 	// console.log(e.target);
-	console.log("toggle!");
+	// console.log("toggle!");
 
 	navMenu.classList.toggle("show");
 	// also toggle aria-expanded and aria-hidden

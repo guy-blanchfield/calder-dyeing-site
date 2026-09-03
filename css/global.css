@@ -363,3 +363,21 @@ but the section height thing applies to at least on section on the average mobil
 	display: flex;
 	flex: 1;
 }
+
+/* for hiding <pictures> while image is loading */
+.picture-image {
+	transition: opacity 250ms ease-in;
+}
+
+/* hide pictures while loading */
+.picture-image--hide {
+	/* also make them invisible as well as transparent */
+	/* otherwise the alt text shows */
+	visibility: hidden;
+	opacity: 0;
+}
+
+.picture-image--show {
+	visibility: visible;
+	opacity: 1;
+}

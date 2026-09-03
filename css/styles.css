@@ -1,0 +1,8 @@
+/* this file just imports all the other css, so we can keep them separate */
+@import "reset.css";
+@import "global.css";
+@import "header.css";
+@import "hero.css";
+@import "home.css";
+@import "main.css";
+@import "footer.css";

@@ -156,7 +156,13 @@
 	/* visibility: hidden; */
 	transition: scale 0.2s ease-in-out;
 	/* border: 1px solid plum; */
+	/* get rid of default link styles */
 	outline: none;
+}
+
+.navbar__logo img {
+	/* prevent firefox showing alt text in link blue while image loads  */
+	color: hsl(var(--white));
 }
 
 /* more padding for lg and higher */

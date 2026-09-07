@@ -159,7 +159,10 @@
 		/* background image goes here */
 		flex-basis: 50%;
 
-		background-image: image-set(url(/img/yarn-dyeing-image-crop.webp) 1x);
+		background-image: image-set(
+			url(/img/yarn-dyeing-image-crop-opt.webp) type("image/webp"),
+			url(/img/yarn-dyeing-image-crop.jpg) type("image/jpeg")
+		);
 		background-repeat: no-repeat;
 		background-size: cover;
 		/* background-position: top 0% left 0%; */

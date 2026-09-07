@@ -3,26 +3,22 @@ let map;
 console.log("google-map.js running!");
 
 async function initMap() {
-	// Calder Dyeing
-	// 53.681292897922354, -1.6364816931105417
-	// Calder Textiles
-	// 53.68053333223048, -1.6378943928851983
-
-	// The location of Calder Dyeing
-	const calderdyeing = { lat: 53.681292897922354, lng: -1.6364816931105417 };
-	// const calderdyeing = { lat: 53.680525, lng: -1.63789 };
+	// The location of Calder Textiles
+	const caldertextiles = { lat: 53.680525, lng: -1.63789 };
 
 	// Request needed libraries.
 	// also access infoWindow here
+	//@ts-ignore
 	const { Map, InfoWindow } = await google.maps.importLibrary("maps");
 	// const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 	const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
+	// will we need to request infoWindow as well?
 
 	// The map, centered at Calder Textiles
 	map = new Map(document.getElementById("map"), {
 		zoom: 13,
-		center: calderdyeing,
-		mapId: "CALDER_DYEING",
+		center: caldertextiles,
+		mapId: "CALDER_TEXTILES",
 		// options: {
 		// gestureHandling: "greedy",
 		// },
@@ -30,7 +26,7 @@ async function initMap() {
 		// https://developers.google.com/maps/documentation/cloud-customization/overview#cloud_tooling
 	});
 
-	// The difference from the old setup
+	// ok so the difference from the old setup (the google map script we used for calder textiles)
 	// is that a new PinElement is assigned to const content which is then used in an options object when
 	// creating a new AdvancedMarkerElement
 
@@ -44,11 +40,16 @@ async function initMap() {
 		draggable: false,
 		// little drop animation on the marker
 		// now done with css
-		position: calderdyeing,
-		title: "Calder Dyeing",
+		// animation: google.maps.Animation.DROP,
+		position: caldertextiles,
+		title: "Calder Textiles",
 		content,
 	});
 
+	// const content = marker.content;
+
+	// temporarily disabled setting the opacity (because the animationend event wasn't firing)
+	// this is fixed now - see the const content = new PinElement() thing above
 	content.style.opacity = "0";
 	content.addEventListener("animationend", (event) => {
 		console.log("animationend!");
@@ -64,10 +65,10 @@ async function initMap() {
 	intersectionObserver.observe(content);
 
 	// the infoWindow (opens on clicking the marker)
-	//  content for the infoWindow
 
+	//  content for the infoWindow
 	const infoWindowContent = `
-		<h5>Calder Dyeing Ltd</h5>
+		<h5>Calder Textiles</h5>
 		<p>
 			Dewsbury Mills<br />
 			Thornhill Road<br />
@@ -82,7 +83,7 @@ async function initMap() {
 		content: infoWindowContent,
 		// so opening the infoWindow doesn't cause the map to shift
 		disableAutoPan: true,
-		ariaLabel: "Calder Dyeing Ltd",
+		ariaLabel: "Calder Textiles",
 	});
 
 	// open the infoWindow on marker's click event

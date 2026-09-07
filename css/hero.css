@@ -161,15 +161,24 @@
 }
 
 .hero--services {
-	background-image: image-set(url(/img/hero-bg-services.webp) 1x);
+	background-image: image-set(
+		url("/img/hero-bg-services-opt.webp") type("image/webp"),
+		url("/img/hero-bg-services.jpg") type("image/jpeg")
+	);
 }
 
 .hero--sustainability {
-	background-image: image-set(url(/img/hero-bg-sustainability.webp) 1x);
+	background-image: image-set(
+		url(/img/hero-bg-sustainability-opt.webp) type("image/webp"),
+		url(/img/hero-bg-sustainability.jpg) type("image/jpeg")
+	);
 }
 
 .hero--contact {
-	background-image: image-set(url(/img/hero-bg-contact.webp) 1x);
+	background-image: image-set(
+		url("/img/hero-bg-contact-opt.webp") type("image/webp"),
+		url("/img/hero-bg-contact.jpg") type("image/jpeg")
+	);
 }
 
 .hero h1 {

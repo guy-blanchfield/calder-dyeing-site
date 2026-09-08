@@ -408,7 +408,10 @@
 }
 
 .navbar .nav-link[aria-current="page"] {
-	color: var(--muted);
+	/* lighthouse considers this insufficient contrast */
+	/* color: var(--muted); */
+	/* bold causes a shift which can be fixed with some bold pseudo content - see .nav-link::before below */
+	font-weight: bold;
 }
 
 /* the separators in the navmenu list */
@@ -475,6 +478,30 @@
 		/* set the var value in global.css just for consistency */
 		padding-inline: var(--nav-link-padding-inline);
 		/* border: 1px solid red; */
+	}
+
+	/* try the bolded pseudo content trick from: https://css-tricks.com/bold-on-hover-without-the-layout-shift/ */
+	/* doing it with ::before because we're using after for the underline */
+
+	/* we'll need the link as flex so we can stack the pseudo content and also to center things horizontally */
+	.nav-link {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.nav-link::before {
+		content: attr(data-text);
+		content: attr(data-text) / "";
+		height: 0;
+		visibility: hidden;
+		overflow: hidden;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		pointer-events: none;
+		font-weight: bold;
 	}
 
 	.nav-link::after {

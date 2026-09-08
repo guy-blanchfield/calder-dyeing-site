@@ -169,8 +169,8 @@
 
 .hero--sustainability {
 	background-image: image-set(
-		url(/img/hero-bg-sustainability-opt.webp) type("image/webp"),
-		url(/img/hero-bg-sustainability.jpg) type("image/jpeg")
+		url("/img/hero-bg-sustainability-opt.webp") type("image/webp"),
+		url("/img/hero-bg-sustainability.jpg") type("image/jpeg")
 	);
 }
 

@@ -12,14 +12,16 @@
 
 // gulp-uglify, gulp-concat, gulp-css, gulp-terser? gulp-html-minifier-terser, gulp-sourcemaps?
 
-// do we need a src folder and a build folder, just a build folder? try just the build folder see how it goes
+// do we need a src folder and a build folder - yes. To get this to work we need to add the following to settings.json
+// "liveServer.settings.root": "/src",
+// NB!!!! This will apply to ALL projects though. Maybe think about using browsersync for projects like this
 
 // declare vars
 
 const { src, dest, watch, series } = require("gulp");
 
 const concat = require("gulp-concat");
-const cssMin = require("gulp-css");
+const cssmin = require("gulp-css");
 const terser = require("gulp-terser");
 const htmlmin = require("gulp-html-minifier-terser");
 // const sourcemaps = require("gulp-sourcemaps");
@@ -28,7 +30,7 @@ const htmlmin = require("gulp-html-minifier-terser");
 function minifyJS() {
 	// we don't need to do all the files in js, but it's easier
 	// than manually specifying files
-	return src("js/*.js")
+	return src("src/js/*.js")
 		.pipe(
 			terser({
 				// option to remove console.logs
@@ -40,10 +42,15 @@ function minifyJS() {
 		.pipe(dest("dist/js"));
 }
 
+// CSS Task
+// we actually want to concatenate all the css, then minify it
+function minifyCSS() {
+	return src("src/css/*.css").pipe(cssmin()).pipe(dest("dist/css"));
+}
+
 // HTML Task
 function minifyHTML() {
-	// return src(["*.html", "!dist/"])
-	return src(["index.html", "contact/*.html", "privacy/*.html"])
+	return src("src/**/*.html")
 		.pipe(htmlmin({ removeComments: true }))
 		.pipe(dest("dist"));
 }
@@ -53,4 +60,4 @@ function minifyHTML() {
 // 	cb();
 // }
 
-exports.default = series(minifyJS, minifyHTML);
+exports.default = series(minifyJS, minifyCSS, minifyHTML);

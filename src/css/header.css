@@ -373,16 +373,8 @@
 	}
 
 	.navmenu__menu {
-		/* border: 1px solid aqua; */
-	}
-
-	.navmenu__menu {
 		/* also reset overflow for the ul in desktop, so the hover underline is visible */
 		overflow: initial;
-	}
-
-	.nav-item {
-		/* border: 1px solid blue; */
 	}
 }
 

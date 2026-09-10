@@ -18,8 +18,9 @@ pnpm-debug.log*
 .DS_Store
 
 # htpasswd
-.htpasswd
-htpasswd
+dist/.htpasswd
+dist/htpasswd
 
 # the google map key
-js/google-map-key.js
+src/js/google-map-key.js
+dist/js/google-map-key.js
